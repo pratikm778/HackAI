@@ -49,8 +49,7 @@ def export_image(image):
 with open('output.md', 'w', encoding='utf-8') as f:
     for page in ocr_response.pages:
         f.write(page.markdown)
-        # Uncomment the following if you want to export images
-        # for image in page.images:
-        #     export_image(image)
+        for image in page.images:
+            export_image(image)
 
 print("OCR processing complete. Results saved to output.md")

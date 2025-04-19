@@ -685,7 +685,6 @@ During the year, L'ITMIndtree has leveraged Pega platform to build one of a kind
 
 Establishing its partnership journey with Boomi in 2020, L'ITMIndtree quickly got elevated to a Global Gold GSI Partner by 2022. Its Integration practice and offerings on Boomi are guided by a dedicated Center of excellence for Core services and Functional consulting.
 L'ITMIndtree offers its customers a complete spectrum of Integration services on Boom's including implementation, Application Development, API-fication, COE setup, Legacy migration and transformation. It has helped many of the fortune 500 customers based in North America with API-fication of various business critical e-Commerce services, Data Integrations and Legacy integrations leveraging Boomi AtomSphere platform to ensure seamless connectivity between integrations with multiple ERP's, Cloud Database's \& CRM's.
-
 During the year, L'ITMIndtree was awarded the API 2023 Partner on Boomi award for deep expertise to deliver integrated environments, power automation, and enable data-driven decision-making.
 
 ## databricks
@@ -911,7 +910,7 @@ Note:
 
 ## 22. Turnover rate for permanent employees
 
-|  | FY 2023-24 |  |  | FY 2022-23 |  |  | FY 2021-22 |  |  |
+|  | FY 2023-25 |  |  | FY 2022-23 |  |  | FY 2021-22 |  |  |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 |  | Male | Female | Others | Total | Male | Female | Others | Total |  |
 | Permanent Employees | 18.21\% | 14.98\% | 11.54\% | 14.45\% | 20.10\% | 20.30\% | 8.70\% | 20.20\% | 24.00\% | 23.10\% | 0.00\% | 23.80\% |
@@ -958,185 +957,128 @@ Note:
     ${ }^{2}$ During the year, Mindtree Software (Shanghai) Co. Ltd is liquidated w.e.f. August 26, 2023.Standalone Balance Sheet
 As at March 31, 2024
 
-| Particulars | Note No. | (P) in Millions |  |  |
+| Particulars | Note No. | (P or Mithers) |  |  |
 | :--: | :--: | :--: | :--: | :--: |
 |  |  | March 31, 2024 | As at March 31, 2023* |  |
 | ASSETS |  |  |  |  |
 | Non-current assets |  |  |  |  |
-| (a) Property, plant and equipment | 3 | 18,248 | 9,422 |  |
-| (b) Path-of-use assets | 40 | 18,199 | 12,067 |  |
-| (c) Capital work-in-progress | 2 | 9,642 | 8,126 |  |
-| (d) Goodwill | 4 | 5,286 | 6,290 |  |
-| (e) Other intangible assets | 2 | 1,463 | 1,538 |  |
-| (f) Intangible assets under development | 3 | 327 | 434 |  |
-| (g) Financial assets |  |  |  |  |
-| (h) Investments | 5 | 24,499 | 11,776 |  |
-| (i) Trade recircults | 5 | 20 | 39 |  |
-| (j) Other financial assets | 5 | 4,538 | 1,748 |  |
-| (k) Deferred tax assets (net) | 8 | 2,614 | 3,614 |  |
-| (l) Income tax assets (net) |  | 2,881 | 2,212 |  |
-| (m) Other non-current assets | 9 | 1,806 | 1,848 |  |
-| Total Non-current assets |  | 82,761 | 59,106 |  |
+| 40 | Property, plant and equipment | 3 | 18,248 | 9,422 |
+| 39 | Path-of-use assets | 40 | 18,199 | 12,067 |
+| 37 | Capital work-in-progress | 3 | 9,642 | 8,126 |
+| 35 | Goodwill | 4 | 9,286 | 8,290 |
+| 30 | Other intangible assets | 3 | 7,463 | 1,538 |
+| 26 | Intangible assets under development | 3 | 327 | 634 |
+| 10 | Financial assets |  |  |  |
+|  | Investments | 5 | 24,499 | 11,776 |
+|  | Trade reorvables | 5 | 20 | 39 |
+|  | Other financial assets | 5 | 4,538 | 1,748 |
+| 25 | Deferred tax assets (net) | 8 | 2,614 | 3,814 |
+| 22 | Income tax assets (net) |  | 2,881 | 2,212 |
+| 21 | Other non-current assets | 9 | 1,806 | 1,848 |
+| Total Non-current assets |  |  | 82,761 | 59,106 |
 | Current assets |  |  |  |  |
-| (a) Incentives | 10 | 30 | 33 |  |
-| (b) Inventories |  |  |  |  |
-| (1) Investments | 11 | 47,534 | 47,418 |  |
-| (2) Trade recircults | 12 | 19,727 | 55,185 |  |
-| (3) Unskilled revenue | 13 | 15,902 | 15,566 |  |
-| (4) Cash and cash equivalents | 14 | 25,947 | 20,630 |  |
-| (5) Other bank balances | 15 | 5,860 | 5,031 |  |
-| (6) Loans | 16 | 259 | 1,794 |  |
-| (7) Other financial assets | 17 | 4,619 | 1,807 |  |
-| (8) Income tax assets (net) |  | 18,790 | 19,900 |  |
-| (9) Other current assets | 18 | 18,790 | 18,900 |  |
-| Total current assets |  | 181,825 | 165,364 |  |
-| TOTAL ASSETS |  | 181,222 | 224,370 |  |
+| 40 | Incentories | 10 | 30 | 33 |
+| 35 | Financial assets |  |  |  |
+| 31 | Investments | 11 | 47,534 | 47,418 |
+| 25 | Trade reorvables | 12 | 19,727 | 55,185 |
+| 20 | Unfolded revenue | 13 | 15,902 | 15,566 |
+| 20 | Cash and cash equivalents | 14 | 25,947 | 20,630 |
+| 20 | Other bank balances | 15 | 5,860 | 5,031 |
+| 20 | Loans | 16 | 256 | 1,794 |
+| 20 | Other financial assets | 17 | 4,618 | 1,807 |
+| 21 | Income tax assets (net) |  |  |  |
+| 20 | Other current assets | 18 | 18,700 | 19,900 |
+| Total current assets |  |  | 181,822 | 165,364 |
+| TOTAL ASSETS |  |  | 181,222 | 224,370 |
 | EQUITY AND LIABILITIES |  |  |  |  |
 | Equity |  |  |  |  |
-| (a) Easily share capital | 19 | 296 | 296 |  |
-| (b) Other equity |  |  |  |  |
-| (1) Other revenues | 20 | 19,260 | 8,508 |  |
-| (2) Retained earnings | 20 | 118,422 | 150,966 |  |
-| (3) Share application money pending allotment |  |  |  |  |
-| Total Equity |  | 192,365 | 159,770 |  |
+| 40 | Easily share capital | 19 | 296 | 296 |
+| 35 | Other equity |  |  |  |
+| 31 | Other revenues | 20 | 19,260 | 8,508 |
+| 25 | Retained earnings | 20 | 118,422 | 150,966 |
+| 21 | Share application money pending allotment |  |  |  |
+| Total Equity |  |  | 192,365 | 159,770 |
 | Liabilities |  |  |  |  |
 | Non-current liabilities |  |  |  |  |
-| (a) Financial liabilities |  |  |  |  |
-| (1) Lease liabilities | 40 | 16,425 | 11,407 |  |
-| (2) Other financial liabilities | 21 | 318 | 1,774 |  |
-| (3) Deferred tax liabilities | 22 | 182 | 26 |  |
-| (4) Provisions | 22 | 182 | 26 |  |
-| Total non-current liabilities |  | 18,360 | 15,561 |  |
+| 40 | Financial liabilities |  |  |  |
+| 31 | Lease liabilities | 40 | 16,425 | 11,401 |
+| 25 | Other financial liabilities | 21 | 218 | 1,774 |
+| 20 | Deferred tax liabilities | 22 | 122 | 26 |
+| 21 | Provisions | 22 | 122 | 20 |
+| Total non-current liabilities |  |  | 18,360 | 13,351 |
 | Current liabilities |  |  |  |  |
-| (a) Financial liabilities |  |  |  |  |
-| (1) Lease liabilities | 40 | 16,425 | 11,407 |  |
-| (2) Other financial liabilities | 21 | 318 | 1,774 |  |
-| (3) Deferred tax liabilities | 22 | 182 | 26 |  |
-| (4) Other current liabilities | 22 | 182 | 26 |  |
-| Total non-current liabilities |  | 18,360 | 15,561 |  |
-| Current liabilities |  |  |  |  |
-| (a) Total payables |  |  |  |  |
-| (1) Lease liabilities | 40 | 16,425 | 11,407 |  |
-| (2) Other financial liabilities | 21 | 318 | 1,774 |  |
-| (3) Deferred tax liabilities | 22 | 182 | 26 |  |
-| (4) Provisions | 22 | 182 | 26 |  |
-| Total non-current liabilities |  | 18,360 | 15,561 |  |
-| Current liabilities |  |  |  |  |
-| (a) Total payables |  |  |  |  |
-| (1) Lease liabilities | 40 | 16,425 | 11,407 |  |
-| (2) Other financial liabilities | 21 | 318 | 1,774 |  |
-| (3) Deferred tax liabilities | 22 | 182 | 26 |  |
-| (4) Provisions | 22 | 182 | 26 |  |
-| Total non-current liabilities |  | 18,360 | 15,561 |  |
-| Current liabilities |  |  |  |  |
-| (a) Total payables |  |  |  |  |
-| (1) Lease liabilities | 40 | 16,425 | 11,407 |  |
-| (2) Other financial liabilities | 21 | 318 | 1,774 |  |
-| (3) Deferred tax liabilities | 22 | 182 | 26 |  |
-| (4) Provisions | 22 | 182 | 26 |  |
-| Total non-current liabilities |  |  |  |  |
-| (a) Other current liabilities | 25 | 19,105 | 10,901 |  |
-| (b) Provisions | 26 | 19,105 | 10,901 |  |
-| (c) Provisions |  | 19,105 | 10,901 |  |
-| Total current liabilities |  | 25,784 | 13,948 |  |
-| TOTAL LIABILITIES |  | 33,052 | 31,049 |  |
-| TOTAL EQUITY AND LIABILITIES |  | 31,886 | 64,695 |  |
-| Material accounting policies |  |  |  |  |
-| Other notes to accounts |  |  |  |  |
+| 40 | Financial liabilities |  |  |  |
+| 31 | Lease liabilities |  |  |  |
+| 25 | Other financial liabilities | 23 | 118 | 1,774 |
+| 20 | Deferred tax liabilities | 24 | 218 | 2,180 |
+| 20 | Other financial liabilities | 25 | 19,271 | 15,890 |
+| 20 | Other current liabilities | 25 | 15,105 | 10,901 |
+| 21 | Provisions | 26 | 10,641 | 7,496 |
+| 20 | Income tax liabilities (net) |  | 17,122 | 9,500 |
+| Total current liabilities |  |  | 93,912 | 91,049 |
+| TOTAL LIABILITIES |  |  | 91,930 | 84,695 |
+| TOTAL EQUITY AND LIABILITIES |  |  | 269,577 | 224,370 |
+| Maternal accounting policies |  |  |  |  |
+| Other notes to accounts |  | 34 - 53 |  |  |
 | * Refer Note 4402 |  |  |  |  |
 | As per our report attached |  |  |  |  |
-| (a) Debates Hackins \& Sells Chartered Accountants LLP Chartered Accountants |  | 27 | 342,534 | 319,755 |
-| From's Registration No.: 11736406/96-100739 |  |  |  |  |
-|  |  |  | 223 | 117 |
-| B. Items that will be reclassified to Profit or Loss (net of tax) |  |  | 4,626 | $(6,951)$ |
-| Total Other Comprehensive Income/(loss) |  |  | 4,849 | $(6,834)$ |
-| TOTAL COMPREHENSIVE INCOME |  |  | 49,708 | 35,648 |
-| Basic earning per equity share (¥) |  | 42 | 151.60 | 143.66 |
-| Diluted earning per equity share (¥) |  | 42 | 151.24 | 143.43 |
-| Material accounting policies |  | 2 |  |  |
-| Other notes to accounts |  | 34 - 54 |  |  |
-| * Refer Note 4402 |  |  |  |  |
-| As per our report attached |  |  |  |  |
-| (a) Debates Hackins \& Sells Chartered Accountants LLP Chartered Accountants |  |  |  |  |
-| From's Registration No.: 11736406/96-100739 |  |  | 223 | 117 |
-| B. Items that will be reclassified to Profit or Loss (net of tax) |  |  | 4,626 | $(6,951)$ |
-| Total Other Comprehensive Income/(loss) |  |  | 4,849 | $(6,834)$ |
-| TOTAL COMPREHENSIVE INCOME |  |  | 49,708 | 35,648 |
-| Basic earning per equity share (¥) |  | 42 | 151.60 | 143.66 |
-| Diluted earning per equity share (¥) |  | 42 | 151.24 | 143.43 |
-| Material accounting policies |  | 2 |  |  |
-| Other notes to accounts |  | 34 - 54 |  |  |
-| * Refer Note 4402 |  |  |  |  |
-| As per our report attached |  |  |  |  |
-| (a) Debates Hackins \& Sells Chartered Accountants LLP Chartered Accountants |  |  |  |  |
-| From's Registration No.: 11736406/96-100739 |  |  | 223 | 117 |
-| B. Items that will be reclassified to Profit or Loss (net of tax) |  |  | 4,626 | $(6,951)$ |
-| Total Other Comprehensive Income/(loss) |  |  | 4,849 | $(6,834)$ |
-| TOTAL COMPREHENSIVE INCOME |  |  | 49,708 | 35,648 |
-| Basic earning per equity share (¥) |  | 42 | 151.60 | 143.66 |
-| Diluted earning per equity share (¥) |  | 42 | 151.24 | 143.43 |
-| Material accounting policies |  | 2 |  |  |
-| Other notes to accounts |  | 34 - 54 |  |  |
-| * Refer Note 4402 |  |  |  |  |
-| As per our report attached |  |  |  |  |
-| (a) Debates Hackins \& Sells Chartered Accountants LLP Chartered Accountants |  |  |  |  |
-| From's Registration No.: 11736406/96-100739 |  |  | 223 | 117 |
-| B. Items that will be reclassified to Profit or Loss (net of tax) |  |  | 4,626 | $(6,951)$ |
-| Total Other Comprehensive Income/(loss) |  |  | 4,849 | $(6,834)$ |
-| TOTAL COMPREHENSIVE INCOME |  |  |  |  |
-| Basic earnings per equity share (¥) |  | 42 | 151.60 | 143.66 |
-| Diluted earnings per equity share (¥) |  | 42 | 151.24 | 143.43 |
-| Material accounting policies |  | 2 |  |  |
-| Other notes to accounts |  | 34 - 54 |  |  |
-| * Refer Note 4402 |  |  |  |  |
-| As per our report attached |  |  |  |  |
-| (a) Debates Hackins \& Sells Chartered Accountants LLP Chartered Accountants |  |  |  |  |
-| From's Registration No.: 11736406/96-100739 |  |  | 223 | 117 |
-| B. Items that will be reclassified to Profit or Loss (net of tax) |  |  | 4,626 | $(6,951)$ |
-| Total Other Comprehensive Income/(loss) |  |  |  |  |
-| TOTAL COMPREHENSIVE INCOME |  |  |  |  |
-|  |  |  |  |  |
-| Cited Financial Officer |  |  |  |  |
-|  |  |  |  |  |
-| Nondevelop No.: 110128 |  |  |  |  |
-| Number |  |  |  |  |
-| April 24, 2024 |  |  |  |  |
+| For Debatte Haskins \& Sells Chartered Accountants LLP | For and on behalf of the Board of Directors of LTMinditese Limited |  |  |  |
+| Chartered Accountants | Debatins Chatterjee |  |  |  |
+| Firm's Registration No.: 11736490/W-100739 | Chief Executive Officer |  |  |  |
+|  | & Managing Director |  |  |  |
+|  | (206 583(2396)) |  |  |  |
+|  | Mumbai |  |  |  |
+|  | Vind |  |  |  |
+| Gurninder Singh | Vindit Teredesa | Angra Arora |  |  |
+| Partner | Chief Financial Officer |  |  |  |
+| Membership No.: 110128 | Mumber | Company Secretary |  |  |
+| Mumbai |  | & Company Officer |  |  |
+| April 24, 2024 | April 24, 2024 | Mumber |  |  |
 
+Standalone Statement of Profit and Loss
+For the year ended March 31, 2024
 
-| Particulars | Note No. | (P) in Millions |  |
-| :--: | :--: | :--: |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-5. NON-CURRENT INVESTMENTS
+| Particulars | Note No. | (P or Millers) |  |
+| :--: | :--: | :--: | :--: |
+|  |  | March 31, 2023* | For the year ended March 31, 2023* |
+| Revenue from operations | 27 | 342,534 | 319,755 |
+| Other income | 28 | 7,099 | 5,016 |
+| Total income |  | 349,633 | 324,771 |
+| Expenses |  |  |  |
+| Employee benefits expense | 29 | 210,480 | 194,274 |
+| Sub-contracting expenses |  | 32,349 | 33,422 |
+| Finance costs | 30 | 2,071 | 1,441 |
+| Depreciation and amortization expense | 31 | 7,604 | 6,486 |
+| Other expenses | 32 | 38,325 | 33,362 |
+| Total Expenses |  | 290,839 | 268,985 |
+| Profit before tax |  | 58,794 | 55,786 |
+| Tax expense |  |  |  |
+| Current tax | 33 (i) | 13,917 | 13,828 |
+| Deferred tax | 33 (ii) | 18 | (524) |
+|  |  | 13,935 | 13,304 |
+| NET PROFIT AFTER TAX |  | 44,859 | 42,482 |
+| OTHER COMPREHENSIVE INCOME (LOSS) | 34 |  |  |
+| A. Items that will not be reclassified to Profit or Loss (net of tax) |  | 223 | 117 |
+| B. Items that will be reclassified to Profit or Loss (net of tax) |  | 4,626 | (6,951) |
+| Total Other Comprehensive Income/(loss) |  | 4,849 | (6,834) |
+| TOTAL COMPREHENSIVE INCOME |  | 49,708 | 35,648 |
+| Basic earning per equity share (P) | 42 | 151.60 | 143.66 |
+| Diluted earning per equity share ( $\boldsymbol{P}$ ) | 42 | 151.24 | 143.43 |
+| Material accounting policies | 2 |  |  |
+| Other notes to accounts | 34 - 54 |  |  |
+| * Refer Note 4402 |  |  |  |
+| As per our report attached |  |  |  |
+| For Debatte Haskins \& Sells Chartered Accountants LLP | For and on behalf of the Board of Directors of LTMinditese Limited |  |  |
+| Chartered Accountants | Debatins Chatterjee |  |  |
+| Firm's Registration No.: 11736490/W-100739 | Chief Executive Officer |  |  |
+|  | & Managing Director |  |  |
+|  | (206 583(2396)) |  |  |
+|  | Mumbai |  |  |
+| Gurninder Singh | Vind Teredesa | Angra Arora |  |
+| Partner | Chief Financial Officer | Company Secretary |  |
+| Membership No.: 110128 |  | & Company Officer |  |
+| Mumbai |  | Mumber |  |
+| April 24, 2024 | April 24, 2024 |  |  |5. NON-CURRENT INVESTMENTS
 
 | Particulars | $\begin{aligned} & \text { Start } \\ & \text { March 31, } 2024 \end{aligned}$ | As at <br> March 31, 2023 |
 | :--: | :--: | :--: |
@@ -1167,8 +1109,8 @@ As at March 31, 2024
 | Equity Instruments: |  |  |
 | - 950,000 (As at March 31, 2023: 950,000) Equity shares of ₹ 1 each in NuvePro Technologies Private Limited | 1 | 1 |
 | Preference Shares: |  |  |
-| - 643,790 (As at March 31, 2023: 643,790) Series A Convertible Preferred Stock at US $\$ 0.0001$ each fully paid at premium of US $\$ 0.2557$ each in 30 Second Software Inc. | 7 | 7 |
-| 18,880 (As at March 31, 2023: 18,880) Series A Preferred stock at US $\$ 0.0001$ each fully paid at premium of US $\$ 238,3474$ each in COPE Healthcare Consulting Inc ${ }^{4}$ | 343 | 343 |
+| - 643,790 (As at March 31, 2023: 643,790) Series A Convertible Preferred Stock at US\$ 0.0001 each fully paid at premium of US $\$ 0.2557$ each in 30 Second Software Inc. | 7 | 7 |
+| 18,880 (As at March 31, 2023: 18,880) Series A Preferred stock at US\$ 0.0001 each fully paid at premium of US $\$ 238,3474$ each in COPE Healthcare Consulting Inc ${ }^{4}$ | 343 | 343 |
 |  | 24,499 | 11,776 |
 | Other Disclosures: |  |  |
 | (i) Aggregate amount of quoted investments | 17,616 | 5,840 |
@@ -1180,7 +1122,7 @@ As at March 31, 2024
 3. During the year ended March 31, 2023, the Company acquired a 6.64\% stake in COPE Healthcare Consulting Inc. ('COPE') for a consideration of ₹ 343 pursuant to a Stock Purchase Agreement entered on April 4, 2022 to expand its healthcare business. COPE is a healthcare consulting, implementation and co-management leader in population health management, value-based care and payment, workforce development and data analysis. The Company has made an inexorable election to present in Other Comprehensive Income subsequent changes in the fair value of this investment as this is strategic investment and is not held for trading.
 4. Impairment upto March 31, 2024 is ₹ 56 (Previous Year: ₹ 56 ).
 
-## 6. NON-CURRENT TRADE RECEIVABLES
+# 6. NON-CURRENT TRADE RECEIVABLES 
 
 | Particulars | Start |  | As at <br> March 31, 2023 |
 | :--: | :--: | :--: | :--: |
@@ -1190,22 +1132,18 @@ As at March 31, 2024
 
 7. OTHER NON-CURRENT FINANCIAL ASSETS
 
-| Particulars |  | As at <br> March 31, 2023 |  | As at <br> March 31, 2023 |
+| Particulars |  | As at <br> March 31, 2023 |  |  |
 | :--: | :--: | :--: | :--: | :--: |
-| Derivative financial instruments |  | 2,148 |  | 267 |
-| Security deposits |  | 1,380 |  | 1,462 |
-| Lease receivables |  | 0 |  | 19 |
-|  |  | 4,528 |  | 1,748 |
-
-8. DEFERRED TAX ASSETS/DEFERRED TAX LIABILITIES
-
-| Particulars |  | As at <br> March 31, 2023 |  | As at <br> March 31, 2023 |
-| :--: | :--: | :--: | :--: | :--: |
-| Deferred tax asset (net) |  | 2,014 |  | 3,588 |
-
-(i) Deferred tax assets/(liabilities) as at March 31, 2024
-(i) Deferred tax assets
-![img-4.jpeg](img-4.jpeg)(ii) Deferred tax liabilities
+| Derived tax assets (net) |  |  |  |  |
+|  | 529 | (1) | (1,556) | (528) |
+| Branch profit tax | (404) | (169) |  | (573) |
+| Unrealized (gains)/losses on investments | (536) | (381) |  | (917) |
+| Allowance for expected credit loss | 470 | 183 |  | 653 |
+| Provision for employee benefits | 1,638 | 644 |  | 2,282 |
+| Depreciation/amortization | 789 | (179) |  | 610 |
+| Right-of-use assets net of lease liabilities | 510 | (3) |  | 507 |
+| Others | 518 | (138) |  | 380 |
+| Deferred tax assets (net) (A) | 3,614 | (44) | (1,556) | 2,014 |(ii) Deferred tax liabilities
 
 | Particulars | Deferred tax asset/(liabilities) as at April 1, 2022 | (Charge)/credit by statement of Profit \& Loss | (Charge)/credit to Other Comprehensive Income | Deferred Tax asset/(liabilities) as at March 31, 2022 |
 | :--: | :--: | :--: | :--: | :--: |
@@ -1258,9 +1196,9 @@ The Company has not created deferred tax asset on accumulated losses of $\$ 64$ 
 | Project-related inventories | 30 | 33 |
 |  | 80 | 33 |
 
-11. CURRENT INVESTMENTS
+## 11. CURRENT INVESTMENTS
 
-| Particulars | As at <br> March 31, 2024 | As at <br> March 31, 2023 |
+| Particulars | As at March 31, 2023 | As at March 31, 2023 |
 | :--: | :--: | :--: |
 | Investments measured at Amortized Cost: |  |  |
 | Quoted: |  |  |
@@ -1268,7 +1206,7 @@ The Company has not created deferred tax asset on accumulated losses of $\$ 64$ 
 | Commercial Papers | 5,213 | 4,407 |
 | Certificate of Deposits | 4,055 | 2,765 |
 | Treasury Bills |  | 98 |
-| Government Securities | 95 |  |
+| Government Securities | 95 | - |
 | Unquoted: |  |  |
 | Corporate deposits | 4,210 | 8,599 |
 | Commercial papers |  | 247 |
@@ -1281,15 +1219,15 @@ The Company has not created deferred tax asset on accumulated losses of $\$ 64$ 
 | Market Value of quoted investments | 62,951 | 38,582 |
 | (ii) Aggregate amount of unquoted investments | 4,210 | 8,846 |
 
-12. CURRENT TRADE RECEIVABLES
+## 12. CURRENT TRADE RECEIVABLES
 
-| Particulars | As at <br> March 31, 2024 | As at <br> March 31, 2023 |
+| Particulars | As at March 31, 2023 | As at March 31, 2023 |
 | :--: | :--: | :--: |
 | Unsecured, considered good | 53,540 | 54,746 |
 | Less: Allowance for expected credit loss | (2,227) | (1,561) |
 |  | 53,721 | 53,185 |
 
-Allowance for expected credit loss movement:
+## Allowance for expected credit loss movement:
 
 | Particulars | As the year ended March 31, 2023 | For the year ended March 31, 2023 |
 | :--: | :--: | :--: |
@@ -1416,9 +1354,15 @@ Key audit matters are those matters that, in our professional judgment, were of 
 
 ## No. Key Audit Matter
 
-A) year-end, significant amount of work in progress (unfolded revenue), related to these contracts is recognised on the balance sheet.
+AQ. Key Audit Matter Auditor's Response
 
+- At year-end, significant amount of work in progress (unfolded revenue), related to these contracts is recognised on the balance sheet.
 This required a high degree of auditor judgment in evaluating the audit evidence and a higher extent of audit effort to evaluate the reasonableness of the total estimated amount of revenue and unbifed revenue recognized on these fixed-price contracts. Refer Note 28 to the consolidated financial statements.
+
+Compared costs incurred with Company's estimate of efforts or costs incurred to date to identify significant variations and evaluate whether those variations have been considered appropriately in estimating the remaining costs or efforts to complete the contract.
+
+- Tested the estimate for consistency with the status of delivery of milestones and customer acceptances and sign off from customers to identify possible delays in achieving milestones, which require changes in estimated costs or efforts to complete the remaining performance obligations.
+
 
 ## Information Other than the Financial Statements and Auditor's Report Thereon
 
