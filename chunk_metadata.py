@@ -210,30 +210,23 @@ def chunk_text_by_tokens(text: str, tokenizer, max_tokens=MAX_TOKENS_PER_CHUNK, 
     start = 0
     while start < len(tokens):
         end = min(len(tokens), start + max_tokens)
-        # Ensure end doesn't break multi-byte characters if using certain tokenizers
-        # For tiktoken, this is generally handled well.
 
+        # Extract the chunk tokens and decode them
         chunk_tokens = tokens[start:end]
         chunk_text = tokenizer.decode(chunk_tokens)
 
-        # Basic check to avoid empty chunks from overlap logic
+        # Ensure the chunk is not empty
         if chunk_text.strip():
-             chunks.append(chunk_text)
+            chunks.append(chunk_text)
 
-        if end == len(tokens): # Reached the end
+        # Move the start pointer forward, considering overlap
+        start = end - overlap if end < len(tokens) else end
+
+        # Prevent infinite loop if overlap is too large
+        if start >= len(tokens):
             break
 
-        # Move start for the next chunk, considering overlap
-        start = max(start, end - overlap) # Ensure start doesn't go backward significantly
-
-        # Prevent infinite loop if overlap is too large or chunk size too small
-        if start >= end:
-             print(f"Warning: Potential infinite loop detected in chunking. Moving start forward. Start: {start}, End: {end}")
-             start = end # Force progress
-
-    # Filter out potentially empty chunks again after loop/overlap logic
-    return [c for c in chunks if c.strip()]
-
+    return chunks
 
 # --- Main Execution ---
 
@@ -318,7 +311,7 @@ for page_num, page in enumerate(ocr_response.pages, start=1):
         if table_headers:
             print(f"      Found Table Headers: {table_headers}")
 
-        # --- Token-Aware Chunking (if needed) ---
+        # --- Token-Aware Chunking ---
         final_chunks = []
         if tokenizer:
             token_count = len(tokenizer.encode(sec_body))
