@@ -1,0 +1,89 @@
+## IV. EMPLOYEES
+
+All employees at LTM/ndtree are classified as either Permanent or Other than Permanent, with no categorization as 'Workers'. Recognizing that gender is not strictly binary, some individuals may prefer to opt out of traditional male/female identification and select 'Others'. This inclusive category encompasses individuals who identify as non-binary, gender-fluid, transgender, or any other gender identity beyond the binary norm. In the fiscal year 2023-24, 231 of our employees identified their gender as 'Others' within our talent pool. In this BKSR report, we have included data on the 'Other' gender category alongside the conventional male/female categorization, whenever applicable and data available.
+
+## 20. Details as at the end of Financial Year:
+
+a. Employees (including differently abled)
+
+|  | Total | Male |  | Female |  | Others |  |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|  |  | (A) | No. (B) | \% (B/A) | No. (C) | \% (C/A) | No. (D) | \% (D/A) |
+| EMPLOYEES |  |  |  |  |  |  |  |  |
+| 1 | Permanent (E) | 81,650 | 56,566 | 69.28\% | 25,061 | 30.69\% | 23 | 0.03\% |
+| 2 | Other than Permanent (F) | 3,952 | 2,873 | 72.70\% | 871 | 22.04\% | 208 | 5.26\% |
+| 3 | Total employees (E + F) | 85,602 | 59,439 | 69.44\% | 25,932 | 30.29\% | 231 | 0.27\% |
+
+b. Differently abled Employees:
+
+|  | Total | Male |  | Female |  | Others |  |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|  |  | (A) | No. (B) | \% (B/A) | No. (C) | \% (C/A) | No. (D) | \% (D/A) |
+| DIFERENTLY ABLED EMPLOYEES |  |  |  |  |  |  |  |  |
+| 1 | Permanent (E) | 58 | 47 | 81.03\% | 11 | 18.97\% | 0 | 0.00\% |
+| 2 | Other than Permanent (F) | 3 | 3 | 100.00\% | 0 | 0.00\% | 0 | 0.00\% |
+| 3 | Total employees (E + F) | 61 | 50 | 81.97\% | 11 | 18.03\% | 0 | 0.00\% |
+
+Note: $n$ is completely voluntary for our employees to declare their disability status and the number of PaoD employees shown here are those who have declared their disability. So, this data represents a subset of actual PaoDs currently working with LTM/ndtree.
+
+## 21. Participation/Inclusion/Representation of women
+
+| S.No. | Particulars | Total (A) | No. and percentage of Females |  |
+| :--: | :--: | :--: | :--: | :--: |
+|  |  |  |  | No. (B) | $\%$ (B/A) |
+| 1. | Board of Directors | 12 | 1 | 8.33\% |
+| 2. | Key Management Personnel | 2 | 1 | $50 \%$ |
+
+Note:
+
+- 23D & MD and two Whole-time Directors are included in the Board of Directors (BODs).
+- Key Management Personnel (KMP) include Chief Financial Officer (CFO) and Company Secretary (CS).
+
+
+## 22. Turnover rate for permanent employees
+
+|  | FY 2023-25 |  |  | FY 2022-23 |  |  | FY 2021-22 |  |  |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|  | Male | Female | Others | Total | Male | Female | Others | Total |  |
+| Permanent Employees | 18.21\% | 14.98\% | 11.54\% | 14.45\% | 20.10\% | 20.30\% | 8.70\% | 20.20\% | 24.00\% | 23.10\% | 0.00\% | 23.80\% |
+
+Note:
+
+- The Turnover rates mentioned above are for LTM/ndtree's global headcount, including subsidiaries.
+- This data is Voluntary Attrition \%.
+- LTM/ndtree has taken a multi-pronged approach towards workforce retention. To retain and attract the workforce, we provide upskilling opportunities, promotions, career growth, benefits and rewards, and long-term incentives which reduced attrition.
+
+
+## V. HOLDING, SUBSIDIARY AND ASSOCIATE COMPANIES (INCLUDING JOINT VENTURES)
+
+## 23. (a) Names of holding/subsidiary/associate companies/joint ventures
+
+| S.No | Name of the holding/subsidiary/associate companies/joint ventures (A) | Indicate whether holding/ subsidiary/ Associate/joint Venture | \% of shares held by listed entity | Does the entity indicate a neture A participate in the Business Responsibility Initiatives of the listed entity? (Yes/No) |
+| :--: | :--: | :--: | :--: | :--: |
+| 1 | LTM/ndtree GmbH | Subsidiary | 100 | Yes |
+| 2 | LTM/ndtree Canada Ltd. | Subsidiary | 100 | Yes |
+| 3 | LTM/ndtree LLC | Subsidiary | 100 | Yes |
+| 4 | LTM/ndtree Financial Services Technologies Inc. | Subsidiary | 100 | Yes |
+| 5 | LTM/ndtree South Africa (Pty) Ltd | Subsidiary | 69.6 | Yes |
+| 6 | LTM/ndtree Information Technology Services (Shanghai) Co., Ltd | Subsidiary | 100 | Yes |
+| 7 | LTM/ndtree Spain, S. L | Subsidiary | 100 | Yes |
+| 8 | LTM/ndtree S.Do. N.,Do. C.V. | Subsidiary | 100 | Yes |
+| 9 | LTM/ndtree SA | Subsidiary | 100 | Yes |
+| 10 | LTM/ndtree PSF SA | Subsidiary | 100 | Yes |
+| 11 | Syncordis Limited, UK | Subsidiary | 100 | Yes |
+| 12 | Syncordis SARL, France | Subsidiary | 100 | Yes |
+| 13 | LTM/ndtree Norge AS | Subsidiary | 100 | Yes |
+| 14 | Nielsen + Partner Unternehmensberater GmbH | Subsidiary | 100 | Yes |
+| 15 | LTM/ndtree Switzerland AG | Subsidiary | 100 | Yes |
+| 16 | Nielsen + Partner PTE Ltd. | Subsidiary | 100 | Yes |
+| 17 | Nielsen \& Partner PTY Ltd | Subsidiary | 100 | Yes |
+| 18 | LTM/ndtree (Thailand) Limited | Subsidiary | 100 | Yes |
+| 19 | LTM/ndtree USA Inc. | Subsidiary | 100 | Yes |
+| 20 | LTM/ndtree UK Limited | Subsidiary | 100 | Yes |
+| 21 | LTM/ndtree Middle East FZ-LLC | Subsidiary | 100 | Yes |
+| 22 | Cuelogic Technologies Inc. ${ }^{1}$ | Subsidiary | 100 | Yes |
+| 23 | Mindtree Software (Shanghai) Co. Ltd. ${ }^{2}$ | Subsidiary | 100 | Yes |
+
+[^0]
+[^0]:    ${ }^{1}$ During the year, Cuelogic Technologies Inc is liquidated w.e.f. April 26, 2023.
+    ${ }^{2}$ During the year, Mindtree Software (Shanghai) Co. Ltd is liquidated w.e.f. August 26, 2023.

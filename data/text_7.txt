@@ -1,0 +1,41 @@
+the JD Edwards Product Innovation, and the Oracle Nordics Cloud Partner Award for OCI. LTIMindtree is the one of the largest JD Edwards practices around the globe and we have received multiple accolades in Product innovation and Digital Integration. Our customer who is a large Heavy Equipment manufacturer in North America was awarded with the Oracle Markie Award for Best Commerce Experience in both B2B and B2C space.
+
+LTIMindtree's services include Oracle Cloud Application, Oracle Cloud Infrastructure, Enterprise Application, and Industry GBU Application. Its expertise in Oracle Application Development, Digital Native Applications, Applications to Oracle Cloud, Database to Oracle Cloud, DevOps, Platform Integration, and Data Management makes it a leader in the field. LTIMindtree's Oracle solutions help modernize on-premises applications for improved business outcomes, while its Industry Cloud solutions offer hyper-personalized customer experiences. The Company has also developed joint GTMs with Oracle in multiple geographies.
+During the year, LTIMindtree became the first Oracle partner globally to achieve the triple certification in Oracle Analytics. Accomplished CE, CSPE partnership levels for laaS, PaaS and SaaS across 6 regions (North America, Western EU, Middle East, India, ASIAN and AND). We are also ranked among the Top 3 Oracle partners worldwide with 50+ Cloud Service Specializations, and part of Oracle Gen AI Beta Program.
+![img-1.jpeg](img-1.jpeg)
+
+LTIMindtree has solidified an exceptional alliance with Snowflake, attaining the esteemed Elite Partner status and securing a position among the top three partners acknowledged by Snowflake. Its dedicated Snowflake Strategic Business Unit (SBU) boasts a robust Center of Excellence. With unwavering support and active involvement from key leadership at both LTIMindtree and Snowflake, this partnership has emerged as one of our top priorities and proved its place over time.
+
+This sentiment was echoed prominently at the recent Snowflake Sales Kick Off, where LTIMindtree stood out as the only GSI sponsor, where sponsorship was exclusively reserved for their select strategic partners.
+LTIMindtree's comprehensive 360-degree partnership approach encompasses Sell with, Sell through, and Sell to strategies, offering an extensive array of services. Together, the companies have successfully executed numerous modernization projects for global enterprises spanning various industries such as Financial Services, Manufacturing, Energy Utility, Hitech, CPG \& Retail, among others. These projects have facilitated seamless migration, modernization of data platforms, and the development of specialized analytics solutions on Snowflake technology.
+Remaining at the forefront of innovation with Snowflake, LTIMindtree continuously explores cutting-edge technologies like Gen AI. Its proprietary tool, PolarSed, drives snowflake modernization with remarkable efficiency, boasting 60-70\% automation and enabling accelerated time-to-value. We are dedicated to optimizing the data-to-decisions journey on the Data Cloud with Fosfor Decision Cloud, ensuring maximum ROI on Snowflake investments through FinOps.
+LTIMindtree's commitment to innovation and delivery excellence has garnered widespread recognition, with Snowflake honoring us as the Global System Integrator Innovation Partner of the Year 2023, Delivery Platform Partner of the Year 2022, and Innovation Partner of the Year 2021.
+Notable accomplishments during the year include, acquiring badges for Snowflake Technology and Migration Acceleration (SAP and Teradata), alongside being launch partners for innovative initiatives like Snowpark Container Services and Gen AI - Snowpark Container Services (SPCS). LTIMindtree's collaborative ecosystem extends further through partnerships with key industry players such as Fivetran, Alation, AWS, and DBT. Together, LTIMindtree is revolutionizing the landscape of partnership excellence, driving innovation, and paving the way for a future of endless possibilities.
+
+## servicesow
+
+LTIMindtree is an Elite partner of ServiceNow. LTIMindtree's strategic partnership with ServiceNow spans programs like Consulting \& Implementation, Reseller Service Provider and Build partner. Its Managed IT Services solution, designed in partnership with ServiceNow, helps organizations get the speed and quality of IT services required to be on top of changing business needs.
+LTIMindtree's dedicated ServiceNow practice has carried out large-scale transformational engagements covering the entire value chain and ServiceNow offerings portfolio - at some of the world's largest media \& entertainment, utilities and manufacturing companies. In addition to upskilling and reskilling resources across various ServiceNow certification streams and building competencies beyond ITSM, LTIMindtree has also invested heavily in establishing a dedicated ServiceNow engineering team and center of excellence, developing a broad range of custom applications and accelerators to drive function specific as well as enterprise ServiceNow solutions.
+To stay ahead of the curve, LTIMindtree is working on several use cases leveraging ServiceNow Gen AI capabilities to unlock the potential benefits and create competitive advantage for its existing customers. Some of these Gen AI use cases can be built utilising third party LLMs thus creating a strong future ready Gen AI adoption model.
+During the year, LTIMindtree was awarded Emerging Service Provider Americas award by ServiceNow. This recognition was on account of its excellence in business innovation, product line expansion, scaling competency and revenue growth. In the last 12 months, LTIMindtree has expanded its competency by adding more than 1,000 Certifications \& Accreditations across various ServiceNow product lines thus strengthening the overall delivery capability. LTIMindtree continues to make investments in key markets across Sales and Delivery to grow ServiceNow footprints.
+
+## $>$ SANET
+
+LTIMindtree is an established premium consulting partner of Salesforce with 20+ years of experience on the platform. As a Summit (Platinum) Partner, we specialize in Salesforce/MuleSoft/Tabieau implementation strategies to drive digital growth through deep client engagement.
+With 3,000+ certified consultants and an experience of 3,250+ projects, LTIMindtree offers services across the Salesforce success value chain - ranging from Strategy Consulting \& Solution Design to Implementation and Application Value Maintenance. Its practice and offerings are guided by dedicated CoEs for Core services, Marketing, Commerce, Industry Clouds and Functional Consulting.
+
+## RECOGNIZED BY INDUSTRY ANALYSTS
+
+INCLUDING ISG, NELSONHALL, AVASANT, FORRESTER AND GARTNER, LTIMINDTREE PROVIDES TRANSFORMATIONAL SERVICES ACROSS THE SALESFORCE PORTFOLIO INCLUDING BUT NOT LIMITED TO:
+
+- Sales Cloud/Experience cloud/CPQ-RLM
+- Service cloud/Field Service
+- Data Cloud and AI
+- Marketing Campaign Ops and Personalization
+- B2C and B2B Commerce clouds
+- Achieved Salesforce Composable Commerce Ecosystem accreditation
+- Industry Clouds
+- Co-Luunch partner for Automotive Cloud and Construction 360 (SmartOps)
+- PaaS implementations based on Force.com platform
+
+During the year, LTIMindtree was on the forefront of innovation for Salesforce's Data Cloud and AI products. Participating in a hand selected program for the top 10 Salesforce GSI to train and mobilize resources, provide POVs and solution offerings for the Data Cloud/AI initiative to drive market penetration.
