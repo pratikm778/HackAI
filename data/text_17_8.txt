@@ -1,4 +1,0 @@
-| No. | Key Audit Matter | Auditor's Response |
-| :--: | :--: | :--: |
-| 1. | Revenue recognition - Fixed price contracts using the percentage of completion method | Principal audit procedures performed: <br> Our audit procedures included the following, among others: |
-|  | Revenue limit: Fixed price contracts including software development and system integration contracts is recognized using a percentage of completion method. Use of the percentage-ofcompletion method requires the Group to determine the actual costs expended to date as a proportion of the estimated total costs to be incurred. Costs expended have been used to measure progress towards completion as there is a direct relationship between input and productivity.

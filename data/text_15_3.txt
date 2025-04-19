@@ -1,9 +1,0 @@
-| Particulars | Deferred tax asset/(liabilities) as at April 1, 2022 | (Charge)/credit to statement of Profit \& Loss | (Charge)/credit to Other Comprehensive Income | Deferred Tax asset/(liabilities) as at March 31, 2023 |
-| :--: | :--: | :--: | :--: | :--: |
-| Depreciation/amortization | (35) | 9 | - | (26) |
-| Deferred tax liabilities (B) | (35) | 9 | - | (26) |
-| Net deferred tax assets/(liabilities) (A+B) | 275 | 524 | 2,789 | 3,588 |
-
-The Company has not created deferred tax asset on accumulated losses of $\$ 64$ as at March 31, 2023, as it is not probable that future taxable profit will be available against which the unused tax losses can be utilized in the foreseeable future. There are no accumulated losses as on March 31, 2024.
-
-## 9. OTHER NON-CURRENT ASSETS

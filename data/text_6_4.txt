@@ -1,9 +1,0 @@
-During the year, LITMindtree scaled up its investments to ramp up the 'GCP CoE' and is investing in building IPs and Accelerators. Gen Al is yet another area identified for strategic collaboration between LITMindtree and GCP which includes building GCP-specific Gen Al solutions and a go-to-market strategy.
-
-Microsoft
-Azure
-Partner
-Expert
-Bishonest
-MSP
-LITMindtree has a long-standing 360-degree partnership with Microsoft and has significantly strengthened its Microsoft credentials by adding 11 specializations, including Low Code Application Development, Data Warehouse Migration to Microsoft Azure, Kubernetes on Azure, Build and Modernize Al Apps with Microsoft Azure, and Analytics on Microsoft Azure.

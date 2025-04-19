@@ -1,6 +1,0 @@
-Google Cloud Partner
-
-LITMindtree is a System Integrator and Premier Partner for Google Cloud Platform (GCP) and Google Workspace. The Company's Go-to-Market strategy with GCP comprises of big bets in the areas of Data Lake Modernization, EDW Modernization, Modernize traditional Applications \& Platforms, Mainframe
-Cloudification and Security Operations.
-
-LITMindtree has attained Data Analytics specialization, 37 Expertise and has over 800 GCP certified associates. It is also a strategic vendor to Google's "Professional Services Organization" (PSO) providing Google Cloud customers with qualified partners that have demonstrated technical proficiency and proven success in specialized solution and service areas.
