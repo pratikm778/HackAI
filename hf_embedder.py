@@ -52,17 +52,15 @@ def process_file(file_path: Union[str, Path]) -> Optional[dict]:
 
 # Entry point
 def main():
-    text_file = "example.txt"
+    pdf_file = "ltimindtree_annual_report.pdf"
 
-    if os.path.exists(text_file):
-        logger.info("Processing text file with Hugging Face...")
+    if os.path.exists(pdf_file):
+        logger.info("Processing PDF file...")
         try:
-            embedding = process_file(text_file)
-            logger.info(f"Text embedding generated successfully. Vector length: {len(embedding['embedding'])}")
+            embedding = process_pdf_file(pdf_file)
+            logger.info("Embedding generated successfully")
         except EmbeddingError as e:
-            logger.error(f"Failed to process text file: {e}")
-    else:
-        logger.warning(f"'{text_file}' not found. Create it and add some content to test.")
+            logger.error(f"Failed to process PDF: {e}")
 
 if __name__ == "__main__":
     main()
