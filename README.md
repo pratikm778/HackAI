@@ -1,3 +1,39 @@
+## How to run
+1. Create and activate a Python virtual environment (recommended)
+2. Install requirements:
+   pip install -r requirements.txt
+
+---
+
+1. Place your PDF document in the project root directory
+2. Run the PDF processor:
+   python `pdf_processor.py`
+
+This will:
+   - Extract text and split into chunks (saved in /data)
+   - Extract images (saved in /pic_data)
+
+---
+
+1. Run the embeddings processor:
+2. python `embeddings_processor.py`
+
+This will:
+- Create embeddings for text chunks
+- Store embeddings in ChromaDB
+
+---
+
+Run the terminal interface:
+python `runner.py`
+
+You can:
+- Type your questions about the document
+- Type 'help' to see available commands
+- Type 'exit' to quit
+
+---
+
 # Multimodal RAG System
 
 A Retrieval-Augmented Generation (RAG) system that can process and query both text and images from corporate documents.
