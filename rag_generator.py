@@ -2,7 +2,7 @@ import os
 from typing import Dict, List, Optional
 import logging
 from dotenv import load_dotenv
-from mistralai import Mistral
+from openai import OpenAI
 from multimodal_retriever import MultimodalRetriever
 
 # Set up logging
@@ -11,22 +11,22 @@ logger = logging.getLogger(__name__)
 
 class RAGGenerator:
     """
-    Connects the multimodal retrieval system with Mistral LLM for generating responses.
+    Connects the multimodal retrieval system with OpenAI LLM for generating responses.
     """
     def __init__(self):
         load_dotenv()
         
-        # Initialize Mistral client
-        api_key = os.getenv('MISTRAL_API_KEY')
+        # Initialize OpenAI client
+        api_key = os.getenv('OPENAI_API_KEY')
         if not api_key:
-            raise ValueError("MISTRAL_API_KEY environment variable not set")
-        self.mistral_client = Mistral(api_key=api_key)
+            raise ValueError("OPENAI_API_KEY environment variable not set")
+        self.client = OpenAI(api_key=api_key)
         
         # Initialize retriever
         self.retriever = MultimodalRetriever()
         
         # Default model
-        self.model = "mistral-large-latest"
+        self.model = "gpt-4-turbo-preview"
     
     def _format_context(self, retrieval_results: Dict) -> str:
         """
@@ -101,8 +101,8 @@ Make your answers concise and to the point."""
             # Build prompt
             system_prompt, user_prompt = self._build_prompt(query, context)
             
-            # Generate response from Mistral
-            response = self.mistral_client.chat(
+            # Generate response from OpenAI
+            response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
                     {"role": "system", "content": system_prompt},
