@@ -1,0 +1,399 @@
+import os
+import re
+import json
+import time
+from pathlib import Path
+from mistralai.client import MistralClient
+from mistralai.models.chat_completion import ChatMessage  # Correct import if needed for LLM calls
+import tiktoken
+import chromadb
+from chromadb.utils import embedding_functions
+import google.generativeai as genai # Or import openai
+
+# --- Configuration ---
+MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
+# Configure your preferred LLM API key (e.g., Google AI Studio or OpenAI)
+LLM_API_KEY = os.getenv("GOOGLE_API_KEY") # Or OPENAI_API_KEY
+if LLM_API_KEY:
+    genai.configure(api_key=LLM_API_KEY)
+else:
+    print("Warning: LLM_API_KEY environment variable not set. Semantic features will be disabled.")
+    # Consider raising an error or providing default non-LLM behavior
+
+PDF_PATH = "ltimindtree_annual_report.pdf"
+OUTPUT_DIR = Path("output_mistral_ocr")
+CHROMA_DB_PATH = ".chromadb_ltimindtree"
+CHROMA_COLLECTION_NAME = "ltimindtree_report_semantic"
+
+# Chunking Parameters
+MAX_TOKENS_PER_CHUNK = 1000 # Target token size for final chunks
+TOKEN_OVERLAP = 100        # Overlap for tiktoken-based splitting
+LLM_MODEL_NAME = "gemini-1.5-flash" # Or "gpt-4o-mini", "gpt-3.5-turbo" etc.
+
+# Embedding Model (using Hugging Face BGE-M3 via SentenceTransformers)
+# Make sure 'sentence-transformers' is installed: pip install sentence-transformers
+EMBEDDING_MODEL_NAME = "BAAI/bge-m3" # Or another suitable model
+
+# --- Helper Functions ---
+
+def call_llm(prompt, model_name=LLM_MODEL_NAME, is_json_output=False):
+    """
+    Placeholder function to call your chosen LLM API (Gemini or OpenAI).
+    Handles basic retry logic and JSON parsing if expected.
+    """
+    if not LLM_API_KEY:
+        print("LLM API Key not configured. Skipping LLM call.")
+        return None if not is_json_output else {}
+
+    max_retries = 3
+    delay = 5  # seconds
+    for attempt in range(max_retries):
+        try:
+            # --- Gemini Example ---
+            model = genai.GenerativeModel(model_name)
+            response_format = genai.types.GenerationConfig.ResponseType.JSON if is_json_output else None
+            generation_config=genai.types.GenerationConfig(response_mime_type="application/json") if is_json_output else None
+
+            response = model.generate_content(
+                prompt,
+                generation_config=generation_config
+                # Add safety_settings if needed
+            )
+
+            # Handle potential blocks or errors in Gemini response
+            if not response.candidates:
+                 raise ValueError("LLM response was empty or blocked.")
+
+            content = response.text # Access text directly
+
+            if is_json_output:
+                # Clean potential markdown code fences ```json ... ```
+                content = re.sub(r'^```json\s*|\s*```$', '', content, flags=re.MULTILINE)
+                return json.loads(content)
+            else:
+                return content.strip()
+
+            # --- OpenAI Example (Comment out/replace Gemini if using OpenAI) ---
+            # import openai
+            # openai.api_key = LLM_API_KEY
+            # response = openai.ChatCompletion.create(
+            #     model=model_name,
+            #     messages=[{"role": "user", "content": prompt}],
+            #     temperature=0.0,
+            #     response_format={"type": "json_object"} if is_json_output else None
+            # )
+            # content = response.choices[0].message.content
+            # if is_json_output:
+            #     return json.loads(content)
+            # else:
+            #     return content.strip()
+            # --- End OpenAI Example ---
+
+        except Exception as e:
+            print(f"LLM call failed (Attempt {attempt + 1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                print(f"Retrying in {delay} seconds...")
+                time.sleep(delay)
+                delay *= 2 # Exponential backoff
+            else:
+                print("Max retries reached. Skipping this LLM task.")
+                return None if not is_json_output else {} # Return default based on expected type
+    return None # Should not be reached if retries exhausted properly
+
+def get_semantic_info(text_segment, max_tokens=MAX_TOKENS_PER_CHUNK):
+    """
+    Uses LLM to get a subtopic label and context summary for a text segment.
+    Optionally could also perform semantic chunking here if needed later.
+    """
+    prompt = f"""
+Analyze the following text segment. Provide a concise analysis in JSON format with two keys:
+1.  "subtopic": A short, descriptive label (2-5 words) summarizing the main theme or topic of this specific segment.
+2.  "context_summary": A single sentence describing the broader context or purpose of this segment within a larger document (like an annual report).
+
+Text Segment:
+\"\"\"
+{text_segment[:2000]}
+\"\"\"
+
+Return ONLY the valid JSON object. Example:
+{{
+  "subtopic": "Financial Performance Overview",
+  "context_summary": "This section details the company's key financial results and growth metrics for the fiscal year."
+}}
+"""
+    # Limit input length to avoid excessive token usage/cost for this specific task
+
+    semantic_data = call_llm(prompt, is_json_output=True)
+
+    # Provide default values if LLM call fails or returns unexpected format
+    return {
+        "subtopic": semantic_data.get("subtopic", "N/A"),
+        "context_summary": semantic_data.get("context_summary", "N/A")
+    }
+
+
+def split_sections(page_md: str):
+    """
+    Splits markdown text into sections based on headings (##, ###, etc.).
+    Handles text before the first heading.
+    Returns a list of tuples: (heading, body)
+    Heading can be None for the initial part.
+    """
+    sections = []
+    # Use a regex that captures the heading and the content following it
+    # Split points are the beginnings of lines starting with #
+    parts = re.split(r'(?m)^(#+\s+.*)$', page_md)
+
+    current_heading = None
+    current_body = ""
+
+    # The first part might be content before any heading
+    if parts and parts[0].strip():
+         current_body = parts[0].strip()
+         # Decide if initial content constitutes its own section
+         if len(parts) == 1 or not parts[1].startswith("#"): # Only initial content or malformed split
+              sections.append((None, current_body))
+              current_body = "" # Reset body
+         # Else, this body belongs to the *next* heading captured
+
+    # Process the rest of the parts (heading, content, heading, content...)
+    for i in range(1, len(parts), 2):
+        heading = parts[i].strip()
+        body = parts[i+1].strip() if (i + 1) < len(parts) else ""
+
+        # If there was preceding body text, associate it with the *previous* heading
+        if current_body:
+             sections.append((current_heading, current_body))
+
+        current_heading = heading
+        current_body = body
+
+    # Add the last section
+    if current_heading or current_body: # Ensure we don't add an empty last section
+        sections.append((current_heading, current_body))
+
+    # Filter out empty sections that might arise from consecutive headings etc.
+    sections = [(h, b) for h, b in sections if b] # Keep only sections with body text
+
+    # If no headings were found at all, return the whole page as one section
+    if not sections and page_md.strip():
+        return [(None, page_md.strip())]
+
+    return sections
+
+
+def extract_table_headers(section_md: str):
+    """
+    Extracts the first row of a Markdown table as headers.
+    Improved regex to be slightly more robust.
+    """
+    lines = section_md.splitlines()
+    for i, line in enumerate(lines):
+        # Look for a potential header row (contains '|')
+        if re.match(r'^\s*\|.*\|\s*$', line):
+            # Check if the next line is a separator line (contains '---')
+            if i + 1 < len(lines) and re.match(r'^\s*\|?\s*:?--+:?\s*\|', lines[i+1]):
+                # Found a table header
+                headers = [h.strip() for h in line.strip().strip('|').split('|') if h.strip()]
+                if headers: # Ensure we don't return empty list for "||"
+                    return headers
+    return None # No table header found
+
+
+def chunk_text_by_tokens(text: str, tokenizer, max_tokens=MAX_TOKENS_PER_CHUNK, overlap=TOKEN_OVERLAP):
+    """Chunks text based on token count using a provided tokenizer."""
+    if not text:
+        return []
+
+    tokens = tokenizer.encode(text)
+    chunks = []
+    start = 0
+    while start < len(tokens):
+        end = min(len(tokens), start + max_tokens)
+        # Ensure end doesn't break multi-byte characters if using certain tokenizers
+        # For tiktoken, this is generally handled well.
+
+        chunk_tokens = tokens[start:end]
+        chunk_text = tokenizer.decode(chunk_tokens)
+
+        # Basic check to avoid empty chunks from overlap logic
+        if chunk_text.strip():
+             chunks.append(chunk_text)
+
+        if end == len(tokens): # Reached the end
+            break
+
+        # Move start for the next chunk, considering overlap
+        start = max(start, end - overlap) # Ensure start doesn't go backward significantly
+
+        # Prevent infinite loop if overlap is too large or chunk size too small
+        if start >= end:
+             print(f"Warning: Potential infinite loop detected in chunking. Moving start forward. Start: {start}, End: {end}")
+             start = end # Force progress
+
+    # Filter out potentially empty chunks again after loop/overlap logic
+    return [c for c in chunks if c.strip()]
+
+
+# --- Main Execution ---
+
+if not MISTRAL_API_KEY:
+    raise ValueError("MISTRAL_API_KEY environment variable not set.")
+
+# Initialize Mistral Client
+client = MistralClient(api_key=MISTRAL_API_KEY)
+
+# Initialize Tokenizer (for token counting)
+try:
+    tokenizer = tiktoken.encoding_for_model("gpt-4") # Use a common model for token counting
+except Exception as e:
+    print(f"Could not initialize tiktoken, falling back to basic split: {e}")
+    tokenizer = None # Handle case where tiktoken fails
+
+# Initialize ChromaDB
+print(f"Initializing ChromaDB at: {CHROMA_DB_PATH}")
+# Define the embedding function
+hf_ef = embedding_functions.SentenceTransformerEmbeddingFunction(
+    model_name=EMBEDDING_MODEL_NAME,
+    device="cpu" # Or "cuda" if GPU is available
+)
+
+chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
+
+# Get or create the collection, specifying the embedding function
+collection = chroma_client.get_or_create_collection(
+    name=CHROMA_COLLECTION_NAME,
+    embedding_function=hf_ef, # Pass the function here
+    metadata={"hnsw:space": "cosine"} # Optional: Specify distance metric
+)
+
+# --- Step 1: OCR with Mistral ---
+print(f"Starting OCR process for {PDF_PATH}...")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+with open(PDF_PATH, "rb") as f:
+    ocr_response = client.ocr(file=f) # Assuming client.ocr exists and works like this
+
+print("OCR finished. Processing pages...")
+
+# --- Step 2 & 3: Chunking, Metadata Extraction, Embedding ---
+all_docs = []
+all_metadatas = []
+all_ids = []
+
+total_chunks = 0
+
+for page_num, page in enumerate(ocr_response.pages, start=1):
+    print(f"Processing Page {page_num}/{len(ocr_response.pages)}...")
+    page_markdown = page.markdown
+
+    # Save images (optional, keep from original script if needed)
+    # for i, img_bytes in enumerate(page.images):
+    #     img_path = OUTPUT_DIR / f"page_{page_num}_img_{i}.png"
+    #     with open(img_path, "wb") as img_file:
+    #         img_file.write(img_bytes)
+
+    # --- Structural Splitting (by Section) ---
+    sections = split_sections(page_markdown)
+    if not sections:
+        print(f"  Page {page_num}: No sections found (treated as one).")
+        sections = [(None, page_markdown)] # Treat whole page as one section if split fails
+
+    for sec_idx, (heading, sec_body) in enumerate(sections, start=1):
+        if not sec_body.strip(): # Skip empty sections
+            continue
+
+        print(f"  Page {page_num}, Section {sec_idx} ({heading or 'No Heading'}):")
+
+        # --- Semantic Enhancement (Subtopic & Context) ---
+        print(f"    Getting semantic info...")
+        semantic_info = get_semantic_info(sec_body)
+        subtopic = semantic_info["subtopic"]
+        context_summary = semantic_info["context_summary"]
+        print(f"      Subtopic: {subtopic}")
+        print(f"      Context: {context_summary}")
+
+        # --- Table Header Extraction ---
+        table_headers = extract_table_headers(sec_body)
+        if table_headers:
+            print(f"      Found Table Headers: {table_headers}")
+
+        # --- Token-Aware Chunking (if needed) ---
+        final_chunks = []
+        if tokenizer:
+            token_count = len(tokenizer.encode(sec_body))
+            print(f"      Token count: {token_count}")
+            if token_count > MAX_TOKENS_PER_CHUNK:
+                print(f"      Section exceeds {MAX_TOKENS_PER_CHUNK} tokens, applying token-based chunking.")
+                final_chunks = chunk_text_by_tokens(sec_body, tokenizer, MAX_TOKENS_PER_CHUNK, TOKEN_OVERLAP)
+                print(f"      Split into {len(final_chunks)} token-based sub-chunks.")
+            else:
+                final_chunks = [sec_body] # Treat the whole section body as one chunk
+        else: # Fallback if tokenizer failed
+             final_chunks = [sec_body] # No token counting possible
+
+        # --- Prepare for ChromaDB Ingestion ---
+        for chunk_idx, chunk_text in enumerate(final_chunks, start=1):
+            if not chunk_text.strip(): continue # Skip empty chunks
+
+            total_chunks += 1
+            doc_id = f"p{page_num}_s{sec_idx}_c{chunk_idx}"
+
+            metadata = {
+                "page": page_num,
+                "section_heading": heading, # Can be None
+                "subtopic": subtopic,       # From LLM
+                "context_summary": context_summary, # From LLM
+                "table_headers": json.dumps(table_headers) if table_headers else None, # Store as JSON string or None
+                "chunk_index_in_section": chunk_idx, # Index within the section's chunks
+                "source_pdf": PDF_PATH # Good practice to store source
+            }
+
+            all_docs.append(chunk_text)
+            all_metadatas.append(metadata)
+            all_ids.append(doc_id)
+
+            # Optional: Batch add to ChromaDB for efficiency
+            if len(all_ids) >= 100: # Add in batches of 100
+                 print(f"Adding batch of {len(all_ids)} chunks to ChromaDB...")
+                 collection.add(documents=all_docs, metadatas=all_metadatas, ids=all_ids)
+                 all_docs, all_metadatas, all_ids = [], [], [] # Reset lists
+
+# Add any remaining chunks
+if all_ids:
+    print(f"Adding final batch of {len(all_ids)} chunks to ChromaDB...")
+    collection.add(documents=all_docs, metadatas=all_metadatas, ids=all_ids)
+
+print(f"\nProcessing Complete. Total chunks added to ChromaDB: {total_chunks}")
+print(f"Database persisted at: {CHROMA_DB_PATH}")
+
+# --- Step 4: Example Query ---
+print("\n--- Example Query ---")
+try:
+    query_text = "What were the key sustainability initiatives or achievements?"
+    # Example using metadata filter (adjust based on actual headings/subtopics)
+    # where_filter = {"subtopic": {"$like": "%Sustainab%"}} # Filter by LLM-generated subtopic
+    where_filter = {"page": {"$gte": 10, "$lte": 20}} # Filter by page range
+
+    results = collection.query(
+        query_texts=[query_text],
+        n_results=5,
+        # where=where_filter, # Uncomment to apply filter
+        include=['metadatas', 'documents', 'distances'] # Include relevant info
+    )
+
+    print(f"Query: '{query_text}'")
+    # print(f"Filter: {where_filter}") # Uncomment if using filter
+    if results and results.get('ids') and results['ids'][0]:
+        print("Results:")
+        for i, doc_id in enumerate(results['ids'][0]):
+            print(f"  ID: {doc_id}")
+            print(f"  Distance: {results['distances'][0][i]:.4f}")
+            print(f"  Metadata: {results['metadatas'][0][i]}")
+            print(f"  Document: {results['documents'][0][i][:200]}...") # Print snippet
+            print("-" * 20)
+    else:
+        print("No results found for the query.")
+
+except Exception as e:
+    print(f"Error during example query: {e}")
