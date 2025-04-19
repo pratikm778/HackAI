@@ -2,7 +2,9 @@ import os
 import logging
 from pathlib import Path
 from typing import Optional, Union
-from sentence_transformers import SentenceTransformer
+from PIL import Image
+import torch
+from transformers import AutoModel, AutoTokenizer, AutoImageProcessor
 
 # Setup logging
 logging.basicConfig(
@@ -18,18 +20,49 @@ class EmbeddingError(Exception):
 class FileProcessingError(EmbeddingError):
     pass
 
-# Hugging Face embedding function
-def get_hf_text_embedding(text: str, model_name: str = "sentence-transformers/all-MiniLM-L6-v2") -> list:
-    """Generate text embeddings using Hugging Face sentence transformers."""
+# Initialize the BGE-M3 model and processor
+MODEL_NAME = "BAAI/bge-m3"
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
+try:
+    # Load text components
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    text_model = AutoModel.from_pretrained(MODEL_NAME).to(DEVICE)
+    
+    # Load image components (assuming the same model can handle both)
+    image_processor = AutoImageProcessor.from_pretrained(MODEL_NAME)
+    logger.info(f"Successfully loaded {MODEL_NAME} model on {DEVICE}")
+except Exception as e:
+    logger.error(f"Failed to load model: {e}")
+    raise EmbeddingError(f"Model loading failed: {e}")
+
+def get_text_embedding(text: str) -> list:
+    """Generate text embeddings using BAAI/bge-m3 model."""
     try:
-        model = SentenceTransformer(model_name)
-        embedding = model.encode(text, convert_to_tensor=False)
+        inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True).to(DEVICE)
+        with torch.no_grad():
+            outputs = text_model(**inputs)
+        # Use the [CLS] token embedding as the sentence embedding
+        embedding = outputs.last_hidden_state[:, 0, :].cpu().squeeze().numpy()
         return embedding.tolist()
     except Exception as e:
-        logger.error(f"Hugging Face text embedding failed: {e}")
-        raise EmbeddingError(f"Failed to generate HF text embedding: {e}")
+        logger.error(f"Text embedding failed: {e}")
+        raise EmbeddingError(f"Failed to generate text embedding: {e}")
 
-# File processing
+def get_image_embedding(image_path: Union[str, Path]) -> list:
+    """Generate image embeddings using BAAI/bge-m3 model."""
+    try:
+        image = Image.open(image_path)
+        inputs = image_processor(images=image, return_tensors="pt").to(DEVICE)
+        with torch.no_grad():
+            outputs = text_model(**inputs)
+        # Use the [CLS] token embedding as the image embedding
+        embedding = outputs.last_hidden_state[:, 0, :].cpu().squeeze().numpy()
+        return embedding.tolist()
+    except Exception as e:
+        logger.error(f"Image embedding failed: {e}")
+        raise EmbeddingError(f"Failed to generate image embedding: {e}")
+
 def process_file(file_path: Union[str, Path]) -> Optional[dict]:
     file_path = Path(file_path)
 
@@ -43,24 +76,31 @@ def process_file(file_path: Union[str, Path]) -> Optional[dict]:
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
-            return {"embedding": get_hf_text_embedding(content)}
+            return {"embedding": get_text_embedding(content)}
         except Exception as e:
             logger.error(f"Text processing error: {e}")
             raise FileProcessingError(f"Text file processing error: {e}")
+    elif file_path.suffix.lower() in ['.jpg', '.jpeg', '.png', '.bmp']:
+        try:
+            return {"embedding": get_image_embedding(file_path)}
+        except Exception as e:
+            logger.error(f"Image processing error: {e}")
+            raise FileProcessingError(f"Image file processing error: {e}")
     else:
         raise FileProcessingError(f"Unsupported file type: {file_path.suffix}")
 
 # Entry point
 def main():
-    pdf_file = "ltimindtree_annual_report.pdf"
-
-    if os.path.exists(pdf_file):
-        logger.info("Processing PDF file...")
+    test_file = "test.txt"  # Change this to test with different files
+    
+    if os.path.exists(test_file):
+        logger.info(f"Processing file: {test_file}")
         try:
-            embedding = process_pdf_file(pdf_file)
+            result = process_file(test_file)
             logger.info("Embedding generated successfully")
-        except EmbeddingError as e:
-            logger.error(f"Failed to process PDF: {e}")
+            logger.info(f"Embedding length: {len(result['embedding'])}")
+        except (EmbeddingError, FileProcessingError) as e:
+            logger.error(f"Failed to process file: {e}")
 
 if __name__ == "__main__":
     main()
