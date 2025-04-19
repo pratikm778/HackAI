@@ -11,3 +11,7 @@ torch>=2.0.0
 mistralai
 sentence-transformers
 tiktoken
+fitz
+pdfplumber
+frontend
+pymupdf
