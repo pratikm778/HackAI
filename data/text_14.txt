@@ -1,0 +1,70 @@
+5. NON-CURRENT INVESTMENTS
+
+| Particulars | $\begin{aligned} & \text { Start } \\ & \text { March 31, } 2024 \end{aligned}$ | As at <br> March 31, 2023 |
+| :--: | :--: | :--: |
+| Long-term investment in subsidiaries: <br> Equity Shares (Unquoted): |  |  |
+| 5 (As at March 31, 2023: 5) fully paid equity shares of EUR 25,000 each in LTIMindtree GmbH (Formerly Larsen \& Toubro Infotech GmbH) | 3,404 | 3,404 |
+| 100 (As at March 31, 2023: 100) fully paid equity shares of CAD 1 each in LTIMindtree Canada Ltd (Formerly Larsen \& Toubro Infotech Canada Limited) | 7 | 7 |
+| 400,000 (As at March 31, 2023: 400,000) equity shares at no per value in LTIMindtree Financial Services Technologies Inc. (Formerly L&T Infotech Financial Services Technologies Inc) | 2 | 2 |
+| 254,750 (As at March 31, 2023: 254,750) equity shares at no per value in LTIMindtree South Africa (Pty) Ltd (Formerly Larsen And Toubro Infotech South Africa (Pty) Ltd) | 11 | 11 |
+| 175,000 (As at March 31, 2023: 175,000) fully paid equity shares of USD 1 each in LTIMindtree Information Technology Services (Shanghai) Co., Ltd. (Formerly L&T Information Technology Services (Shanghai) Co., Ltd.) | 11 | 11 |
+| 50,000 (As at March 31, 2023: 50,000) fully paid equity shares of EUR 1 each in LYIMindtree Spain SL (Formerly L t$' Information Technology Spain SL) | 4 | 4 |
+| 30,000 (As at March 31, 2023: 30,000) fully paid shares of NOK 1 each in LYIMindtree Norge A3 (Formerly Larsen \& Toubro Infotech Norge A3) | 0 | 0 |
+| 92,893 (As at March 31, 2023: 92,893) equity shares at USD 1 each in Lymbyc Solutions Inc, USA | 6 | 6 |
+| 1,000 (As at March 31, 2023: 1000) Equity shares at USD 1 each in Cuelogic Technologies Inc! | 0 | 0 |
+| 1,000 (As at March 31, 2023: 1,000) fully paid equity shares of GBP 1 each in LTIMindtree UK Limited (Formerly Larsen \& Toubro Infotech UK Limited) | 0 | 0 |
+| 1,860 (As at March 31, 2023: 1,860) shares of ABD 1,000 each in LTIMindtree Middle East FZ-LLC (Formerly Larsen \& Toubro Infotech Middle East FZ-LLC) | 37 | 37 |
+| Mindtree Software (Shanghai) Co., Ltd ('MSSCL') ${ }^{1}$ |  | 14 |
+| Other: |  |  |
+| Membership interest of MXN 2,970 (As at March 31, 2023: MXN 2,970) in LTIMindtree S.De. R.,De. C.V. (Formerly L t$'$ Infotech, S. De. R.,De. C.V.) | 0 | 0 |
+| Investments measured at Amortized Cost: <br> Quoted: |  |  |
+| Corporate Bonds/Delemtures | 12,282 | 5,125 |
+| Government Securities | 5,128 | 510 |
+| Unquoted: |  |  |
+| Treasury Notes Philippines Govt. ${ }^{2}$ |  | 2 |
+| Corporate Deposits | 1,935 | 972 |
+| Investments measured at FVTPL: <br> Quoted: |  |  |
+| Reportual Bonds | 206 | 205 |
+| Investments measured at FVTOC: <br> Unquoted |  |  |
+| Equity Instruments: |  |  |
+| - 950,000 (As at March 31, 2023: 950,000) Equity shares of ₹ 1 each in NuvePro Technologies Private Limited | 1 | 1 |
+| Preference Shares: |  |  |
+| - 643,790 (As at March 31, 2023: 643,790) Series A Convertible Preferred Stock at US $\$ 0.0001$ each fully paid at premium of US $\$ 0.2557$ each in 30 Second Software Inc. | 7 | 7 |
+| 18,880 (As at March 31, 2023: 18,880) Series A Preferred stock at US $\$ 0.0001$ each fully paid at premium of US $\$ 238,3474$ each in COPE Healthcare Consulting Inc ${ }^{4}$ | 343 | 343 |
+|  | 24,499 | 11,776 |
+| Other Disclosures: |  |  |
+| (i) Aggregate amount of quoted investments | 17,616 | 5,840 |
+| Market Value of quoted investments | 18,012 | 5,741 |
+| (ii) Aggregate amount of unquoted investments | 6,883 | 5,936 |
+
+1. Mls. Cuelogic Technologies Inc, USA, wholly owned subsidiary of the Company has been voluntarily deregistered and closed as a August 26, 2023.
+2. The Company had invested in Philippines Govt. Treasury notes and had deposited same with local Securities and Exchange Commission, as per Corporation Code of Philippines-126. The Invested Treasury note matured during the year and the maturity proceeds are parked in local bank account and would be reinvested in treasury notes of Philippines Govt.
+3. During the year ended March 31, 2023, the Company acquired a 6.64\% stake in COPE Healthcare Consulting Inc. ('COPE') for a consideration of ₹ 343 pursuant to a Stock Purchase Agreement entered on April 4, 2022 to expand its healthcare business. COPE is a healthcare consulting, implementation and co-management leader in population health management, value-based care and payment, workforce development and data analysis. The Company has made an inexorable election to present in Other Comprehensive Income subsequent changes in the fair value of this investment as this is strategic investment and is not held for trading.
+4. Impairment upto March 31, 2024 is ₹ 56 (Previous Year: ₹ 56 ).
+
+## 6. NON-CURRENT TRADE RECEIVABLES
+
+| Particulars | Start |  | As at <br> March 31, 2023 |
+| :--: | :--: | :--: | :--: |
+| Unsecured, undiquoted \& considered good and not due |  |  | 39 |
+| Less : Allowance for expected credit loss |  | (0) | (0) |
+|  |  | 66 | 39 |
+
+7. OTHER NON-CURRENT FINANCIAL ASSETS
+
+| Particulars |  | As at <br> March 31, 2023 |  | As at <br> March 31, 2023 |
+| :--: | :--: | :--: | :--: | :--: |
+| Derivative financial instruments |  | 2,148 |  | 267 |
+| Security deposits |  | 1,380 |  | 1,462 |
+| Lease receivables |  | 0 |  | 19 |
+|  |  | 4,528 |  | 1,748 |
+
+8. DEFERRED TAX ASSETS/DEFERRED TAX LIABILITIES
+
+| Particulars |  | As at <br> March 31, 2023 |  | As at <br> March 31, 2023 |
+| :--: | :--: | :--: | :--: | :--: |
+| Deferred tax asset (net) |  | 2,014 |  | 3,588 |
+
+(i) Deferred tax assets/(liabilities) as at March 31, 2024
+(i) Deferred tax assets
+![img-4.jpeg](img-4.jpeg)

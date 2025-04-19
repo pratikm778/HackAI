@@ -1,0 +1,93 @@
+Trade Receivables ageing schedule as at March 31, 2024
+
+| Particulars |  | Outstanding for following periods from due date of payment |  |  |  |  |  | Total |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|  |  | Not Due | Less than 6 months | 6 months - 1 year | 1-2 years | 2-3 years | More than 3 years |  |
+| (i) | Undisputed Trade Receivables considered good | 37,982 | 12,651 | 2,453 | 1,148 | 645 | 333 | 55,212 |
+| (ii) | Undisputed Trade Receivables which have significant increase in credit risk | - | 98 | 104 | - | - | - | 202 |
+| (iii) | Undisputed Trade Receivables crediti impaired | - | - | - | - | - | - | - |
+| (iv) | Disputed Trade Receivables considered good | - | - | - | 439 | - | 95 | 534 |
+| (v) | Disputed Trade Receivables which have significant increase in credit risk | - | - | - | - | - | - | - |
+| (vi) | Disputed Trade Receivables crediti impaired | - | - | - | - | - | - | - |
+|  |  | 37,982 | 12,749 | 2,557 | 1,587 | 645 | 428 | 55,948 |
+| Less: Allowance for expected credit loss |  |  |  |  |  |  |  | (2,227) |
+|  |  |  |  |  |  |  |  | 53,721 |
+
+Trade Receivables ageing schedule as at March 31, 2023
+
+| Particulars |  | Outstanding for following periods from due date of payment |  |  |  |  |  | Total |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|  |  | Not Due | Less than 6 months | 6 months - 1 year | 1-2 years | 2-3 years | More than 3 years |  |
+| (i) | Undisputed Trade Receivables considered good | 36,738 | 13,773 | 2,693 | 1,000 | 136 | 307 | 54,647 |
+| (ii) | Undisputed Trade Receivables which have significant increase in credit risk | - | - | - | - | - | - | - |
+| (iii) | Undisputed Trade Receivables crediti impaired | - | - | - | - | - | - | - |
+| (iv) | Disputed Trade Receivables considered good | - | - | - |  | 72 | 27 | 99 |
+| (v) | Disputed Trade Receivables which have significant increase in credit risk | - | - | - | - | - | - | - |
+| (vi) | Disputed Trade Receivables crediti impaired | - | - | - | - | - | - | - |
+| Less: Allowance for expected credit loss |  | 36,738 | 13,773 | 2,693 | 1,000 | 208 | 334 | 54,746 |
+|  |  |  |  |  |  |  |  | (1,561) |
+|  |  |  |  |  |  |  |  | 53,185 |
+
+13. UNBILLED REVENUE
+
+| Particulars |  | As at <br> March 31, 2023 | As at <br> March 31, 2023 |
+| :--: | :--: | :--: | :--: |
+|  |  |  |  |
+| Unbilled revenue* |  | 12,902 | 15,566 |
+|  |  | 12,902 | 15,566 |
+
+* Unbilled revenue has been classified as financial asset where the contractual right to consideration is unconditional upon passage of time.
+
+14. CASH AND CASH EQUIVALENTS
+
+| Particulars | As at <br> March 31, 2023 | As at <br> March 31, 2023 |
+| :--: | :--: | :--: |
+| Cash on hand | 0 | 0 |
+| Balances with bank |  |  |
+| - in current accounts | 15,505 | 19,860 |
+| - in deposit accounts |  | 140 |
+| Remittance in transit | 367 | 517 |
+| Cash and bank balance not available for immediate use | 27 | 68 |
+| Earmarked balances with banks (unclaimed dividend) | 48 | 45 |
+|  | 15,947 | 20,630 |
+
+15. OTHER BANK BALANCES
+
+| Particulars | As at <br> March 31, 2023 | As at <br> March 31, 2023 |
+| :--: | :--: | :--: |
+| Bank deposits | 2,112 | 5,931 |
+
+16. CURRENT LOANS
+
+| Particulars | As at <br> March 31, 2023 | As at <br> March 31, 2023 |
+| :--: | :--: | :--: |
+| Advance to subsidiary* (refer note 43) |  |  |
+| Unsecured, considered good | 456 | 794 |
+|  | 456 | 794 |
+
+* Loans to subsidiaries LTMindtree Middle East F2-LLC (formerly Larsen \& Toubro Infotech Middle East F2-LLC) towards their working capital requirements.
+
+17. OTHER CURRENT FINANCIAL ASSETS
+
+| Particulars | As at <br> March 31, 2023 | As at <br> March 31, 2023 |
+| :--: | :--: | :--: |
+| Derivative financial instruments | 1,038 | 968 |
+| Advances to employees | 411 | 556 |
+| Security deposits | 962 | 132 |
+| Lease receivable | 19 | 64 |
+| Others | 198 | 87 |
+|  | 2,628 | 1,807 |
+
+18. OTHER CURRENT ASSETS
+
+| Particulars | As at <br> March 31, 2023 |
+| :--: | :--: |
+| Unbilled revenue* | 6,203 |
+| Prepaid expenses | 6,530 |
+| Balances receivable from government authorities | 1,727 |
+| Advances recoverable other than in cash | 1,048 |
+| Deferred contract costs ${ }^{a}$ | 381 |
+|  | 18,389 |
+
+* Classified as non financial asset as the contractual right to consideration is dependent on completion of contractual milestones.
+${ }^{a}$ Includes unamortized cost to obtain the contract $\$ 2$ (As at March 31, 2023: \$ 3) and unamortized cost to fulfil the contract $\$ 379$ (As at March 31, 2023: \$ 258).
