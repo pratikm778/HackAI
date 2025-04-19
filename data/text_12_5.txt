@@ -1,0 +1,10 @@
+| S.No | Name of the holding/subsidiary/associate companies/joint ventures (A) | Indicate whether holding/ subsidiary/ Associate/joint Venture | $\%$ of shares held by listed entity | Does the entity indicate a neture 4 participate in the Business Responsibility Initiatives of the listed entity? (Yes/No) |
+| :--: | :--: | :--: | :--: | :--: |
+| 1 | LTM/ndtree GmbH | Subsidiary | 100 | Yes |
+| 2 | LTM/ndtree Canada Ltd. | Subsidiary | 100 | Yes |
+| 3 | LTM/ndtree LLC | Subsidiary | 100 | Yes |
+| 4 | LTM/ndtree Financial Services Technologies Inc. | Subsidiary | 100 | Yes |
+| 5 | LTM/ndtree South Africa (Pty) Ltd | Subsidiary | 69.6 | Yes |
+| 6 | LTM/ndtree Information Technology Services (Shanghai) Co., Ltd | Subsidiary | 100 | Yes |
+| 7 | LTM/ndtree Spain, S. L | Subsidiary | 100 | Yes |
+| 8 | LTM/ndtree S.Do. N.,Do. C.V.

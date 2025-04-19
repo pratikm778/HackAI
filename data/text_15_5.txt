@@ -1,0 +1,22 @@
+| Particulars | As at March 31, 2023 | As at March 31, 2023 |
+| :--: | :--: | :--: |
+| Investments measured at Amortized Cost: |  |  |
+| Quoted: |  |  |
+| Corporate Bonds | 2,487 | 3,734 |
+| Commercial Papers | 5,213 | 4,407 |
+| Certificate of Deposits | 4,055 | 2,765 |
+| Treasury Bills |  | 98 |
+| Government Securities | 95 | - |
+| Unquoted: |  |  |
+| Corporate deposits | 4,210 | 8,599 |
+| Commercial papers |  | 247 |
+| Investments measured at FVTPL: |  |  |
+| Quoted |  |  |
+| Mutual funds | 51,474 | 27,568 |
+|  | 67,534 | 47,418 |
+| Other Disclosures: |  |  |
+| (i) Aggregate amount of quoted investments | 63,324 | 38,572 |
+| Market Value of quoted investments | 62,951 | 38,582 |
+| (ii) Aggregate amount of unquoted investments | 4,210 | 8,846 |
+
+## 12. CURRENT TRADE RECEIVABLES

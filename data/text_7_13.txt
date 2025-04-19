@@ -1,0 +1,11 @@
+- Sales Cloud/Experience cloud/CPQ-RLM
+- Service cloud/Field Service
+- Data Cloud and AI
+- Marketing Campaign Ops and Personalization
+- B2C and B2B Commerce clouds
+- Achieved Salesforce Composable Commerce Ecosystem accreditation
+- Industry Clouds
+- Co-Luunch partner for Automotive Cloud and Construction 360 (SmartOps)
+- PaaS implementations based on Force.com platform
+
+During the year, LTIMindtree was on the forefront of innovation for Salesforce's Data Cloud and AI products. Participating in a hand selected program for the top 10 Salesforce GSI to train and mobilize resources, provide POVs and solution offerings for the Data Cloud/AI initiative to drive market penetration.

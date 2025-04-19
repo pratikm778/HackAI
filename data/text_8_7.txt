@@ -1,0 +1,6 @@
+Establishing its partnership journey with Boomi in 2020, L'ITMIndtree quickly got elevated to a Global Gold GSI Partner by 2022. Its Integration practice and offerings on Boomi are guided by a dedicated Center of excellence for Core services and Functional consulting.
+L'ITMIndtree offers its customers a complete spectrum of Integration services on Boom's including implementation, Application Development, API-fication, COE setup, Legacy migration and transformation. It has helped many of the fortune 500 customers based in North America with API-fication of various business critical e-Commerce services, Data Integrations and Legacy integrations leveraging Boomi AtomSphere platform to ensure seamless connectivity between integrations with multiple ERP's, Cloud Database's \& CRM's.
+
+During the year, L'ITMIndtree was awarded the API 2023 Partner on Boomi award for deep expertise to deliver integrated environments, power automation, and enable data-driven decision-making.
+
+## databricks

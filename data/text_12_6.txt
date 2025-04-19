@@ -1,0 +1,16 @@
+| Subsidiary | 100 | Yes |
+| 9 | LTM/ndtree SA | Subsidiary | 100 | Yes |
+| 10 | LTM/ndtree PSF SA | Subsidiary | 100 | Yes |
+| 11 | Syncordis Limited, UK | Subsidiary | 100 | Yes |
+| 12 | Syncordis SARL, France | Subsidiary | 100 | Yes |
+| 13 | LTM/ndtree Norge AS | Subsidiary | 100 | Yes |
+| 14 | Nielsen + Partner Unternehmensberater GmbH | Subsidiary | 100 | Yes |
+| 15 | LTM/ndtree Switzerland AG | Subsidiary | 100 | Yes |
+| 16 | Nielsen + Partner PTE Ltd. | Subsidiary | 100 | Yes |
+| 17 | Nielsen \& Partner PTY Ltd | Subsidiary | 100 | Yes |
+| 18 | LTM/ndtree (Thailand) Limited | Subsidiary | 100 | Yes |
+| 19 | LTM/ndtree USA Inc. | Subsidiary | 100 | Yes |
+| 20 | LTM/ndtree UK Limited | Subsidiary | 100 | Yes |
+| 21 | LTM/ndtree Middle East FZ-LLC | Subsidiary | 100 | Yes |
+| 22 | Cuelogic Technologies Inc. | Subsidiary | 100 | Yes |
+| 23 | Mindtree Software (Shanghai) Co. Ltd. ${ }^{2}$ | Subsidiary | 100 | Yes |
