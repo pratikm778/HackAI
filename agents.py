@@ -1,14 +1,30 @@
 from crewai import Agent, Task, Crew
 from langchain_openai import OpenAI
+from langchain.tools import tool
 from langchain_community.tools.ddg_search.tool import DuckDuckGoSearchResults
-from langchain_community.tools.llm_math.base import LLMMathTool
+import numexpr
 
 # Set up LLM
 llm = OpenAI(temperature=0)
 
-# Raw Tools
-search_tool = DuckDuckGoSearchResults()
-math_tool = LLMMathTool()
+# Custom Calculator Tool using the numexpr library
+class CalculatorTools:
+    @tool("Make a calculation")
+    def calculate(operation: str) -> str:
+        """Useful to perform any mathematical calculations,
+        like sum, minus, multiplication, division, etc.
+        The input to this tool should be a mathematical
+        expression, e.g., '2007' or '5000/210'
+        """
+        try:
+            result = numexpr.evaluate(operation)
+            return str(result)
+        except Exception as e:
+            return f"Error: {e}"
+
+# Create instances of the tools
+calculator_tool = CalculatorTools().calculate  # This gets the @tool-decorated method
+search_tool = DuckDuckGoSearchResults()  # Use the existing tool directly
 
 # AGENTS
 relevance_checker = Agent(
@@ -42,13 +58,13 @@ math_web_agent = Agent(
     role="Analytical Assistant",
     goal="Perform math operations, plots, and search the web",
     backstory="You are skilled in calculations, plotting, and internet searches.",
-    tools=[math_tool, search_tool],
+    tools=[calculator_tool, search_tool],
     allow_delegation=True,
     verbose=True,
     llm=llm
 )
 
-# TASKS
+# TASKS (rest of your code remains the same)
 task1 = Task(
     description="Check if the user question is relevant to the system's domain. If not, mark as irrelevant and halt further processing.",
     expected_output="Relevant or Irrelevant",
@@ -81,5 +97,5 @@ crew = Crew(
 )
 
 # RUN
-result = crew.run()
+result = crew.run(input="What is 2007 + 5000?")
 print(result)
