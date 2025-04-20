@@ -1,10 +1,1 @@
-| No. | Particulars | Details |
-| :--: | :--: | :--: |
-| 1. | Name | Parwesh Rao |
-| 2. | Designation | Chief Sustainability Officer |
-| 3. | Telephone Number | +91 80 67064000 <br> sustainability@itimindtree.com |
-
-13. Reporting boundary - Are the disclosures under this report made on a standalone basis (i.e., only for the entity) or on a consolidated basis (i.e., for the entity and all the entities which form a part of its consolidated financial statements, taken together):
-Disclosures made in this report pertain to LTIMindtree Limited ("LTIMindtree") on a consolidated basis. It covers all global operations for economic and social category performance disclosures. Environmental performance disclosures using an operational control approach, pertain to India operations, where our largest employee base and environmental impacts lie.
-
-## 14. Name of assurance provider:
+activities (accounting for 90% of the turnover): S. No Description of Main Activity Description of Business Activity % Of Turnover of the entity 1 Information and communication (J6, J8) Computer programming, consultancy, and related activities & other information & communication service activities, IT software, services, and related activities. 100% 17. Products/Services sold by the entity (accounting for 90% of the entity’s turnover): S. No Product/Service NIC Code % Of Total Turnover contributed 1 IT and IT-enabled services including digital transformation services, enterprise solutions, technology consulting, IT consulting, application development and maintenance, business operations services and platforms, among others, are the predominant services which accounts for the entity’s turnover. 62099, 892 (1987 NIC Code) & 620 (NIC Code) 100% III. OPERATIONS 18. Number of locations where plants and/or operations/offices of the entity are situated: Locations Number of plants Number of

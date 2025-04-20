@@ -1,18 +1,1 @@
-| Particulars | As at <br> March 31, 2024 | As at <br> March 31, 2023 |
-| :--: | :--: | :--: |
-| Balances receivable from government authorities | 1,109 | 825 |
-| Advance recoverable other than cash | - | 335 |
-| Prepaid expenses | 177 | 255 |
-| Capital advances | 210 | 282 |
-| Deferred contract costs* | 312 | 151 |
-|  | 1,808 | 1,848 |
-
-* Includes unamortized cost to obtain the contract $\dagger \mathrm{NI}$ (As at march 31, 2023: † 2) and unamortized cost to fulfil the contract $\dagger 312$ (As at March 31, 2023: $\dagger 149$ ).
-10. INVENTORIES
-
-| Particulars | As at <br> March 31, 2024 | As at <br> March 31, 2023 |
-| :--: | :--: | :--: |
-| Project-related inventories | 30 | 33 |
-|  | 80 | 33 |
-
-## 11. CURRENT INVESTMENTS
+Particulars As at March 31, 2024 As at March 31, 2023 Unsecured, considered good 55,948 54,746 Less: Allowance for expected credit loss (2,227) (1,561) 53,721 53,185 Allowance for expected credit loss movement: Particulars For the year ended March 31, 2024 For the year ended March 31, 2023 Balance at the beginning of the year 1,561 1,071 Additions during the year, net 768 609 Uncollectable receivables charged against allowances (refer note 32) (138) (125) Exchange (gain)/loss 36 6 Balance at the end of the year 2,227 1,561 The Company determines the allowance for credit losses based on historical loss experience adjusted to reflect current and estimated future economic conditions. Our vision for a limitless future. Faster. Together. LTIMindtree Limited | Integrated Annual Report 2023-24 324 325 Standalone FINANCIAL STATEMENTS
