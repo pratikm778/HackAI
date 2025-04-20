@@ -6,10 +6,7 @@ from PIL import Image
 import chromadb
 import logging
 from dotenv import load_dotenv
-import google.generativeai as genai
-
-# Import your existing components
-from embeddings_processor import GoogleEmbeddingFunction, ContentLabeler
+from embeddings_processor import ImageAnalyzer, SentenceTransformerEmbeddingFunction
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -23,30 +20,24 @@ class MultimodalRetriever:
     def __init__(self):
         load_dotenv()
         
-        # Configure Google AI
-        api_key = os.getenv('GOOGLE_API_KEY')
-        if not api_key:
-            raise ValueError("GOOGLE_API_KEY environment variable not set")
-        genai.configure(api_key=api_key)
-        
         # Initialize ChromaDB client
         self.db_path = "chroma_db"
         self.client = chromadb.PersistentClient(path=self.db_path)
         
-        # Initialize embedding function
-        self.embedding_function = GoogleEmbeddingFunction()
+        # Initialize embedding function and image analyzer
+        self.embedding_function = SentenceTransformerEmbeddingFunction()
+        self.image_analyzer = ImageAnalyzer()
         
         # Get references to collections
         self.text_collection = self.client.get_collection(
-            name="pdf_embeddings",
+            name="text_embeddings",
             embedding_function=self.embedding_function
         )
         
         # Try to get image collection if it exists
         try:
             self.image_collection = self.client.get_collection(
-                name="image_embeddings",
-                embedding_function=self.embedding_function
+                name="image_embeddings"
             )
             self.has_image_collection = True
         except:
@@ -56,18 +47,15 @@ class MultimodalRetriever:
     def query_text(self, query: str, n_results: int = 5) -> List[Dict]:
         """Query the text database for similar content"""
         try:
-            # Generate embedding for the query
             query_embedding = self.embedding_function([query])[0]
             
-            # Query the collection
             results = self.text_collection.query(
                 query_embeddings=[query_embedding],
                 n_results=n_results,
                 include=['documents', 'metadatas', 'distances']
             )
             
-            # Format results
-            formatted_results = [
+            return [
                 {
                     'text': doc,
                     'metadata': meta,
@@ -81,11 +69,9 @@ class MultimodalRetriever:
                 )
             ]
             
-            return formatted_results
-            
         except Exception as e:
             logger.error(f"Error querying text database: {e}")
-            raise
+            return []
     
     def query_images(self, query: str, n_results: int = 5) -> List[Dict]:
         """Query the image database using a text query"""
@@ -94,32 +80,26 @@ class MultimodalRetriever:
             return []
             
         try:
-            # Generate embedding for the query
-            query_embedding = self.embedding_function([query])[0]
+            # Get all images first
+            results = self.image_collection.get()
             
-            # Query the collection
-            results = self.image_collection.query(
-                query_embeddings=[query_embedding],
-                n_results=n_results,
-                include=['metadatas', 'distances']
-            )
+            formatted_results = []
+            for doc, meta, id in zip(results['documents'], results['metadatas'], results['ids']):
+                # Only include images that have meaningful descriptions (not tables/graphs)
+                if meta.get('description'):
+                    formatted_results.append({
+                        'image_path': meta['image_path'],
+                        'page_number': meta['page_number'],
+                        'description': meta['description'],
+                        'type': meta['type'],
+                        'confidence': meta['confidence'],
+                        'metadata': meta,
+                        'modality': 'image'
+                    })
             
-            # Format results
-            formatted_results = [
-                {
-                    'image_path': meta.get('image_path'),
-                    'page_number': meta.get('page_number'),
-                    'metadata': meta,
-                    'distance': dist,
-                    'modality': 'image'
-                }
-                for meta, dist in zip(
-                    results['metadatas'][0],
-                    results['distances'][0]
-                )
-            ]
-            
-            return formatted_results
+            # Sort by confidence and take top n results
+            formatted_results.sort(key=lambda x: x['confidence'], reverse=True)
+            return formatted_results[:n_results]
             
         except Exception as e:
             logger.error(f"Error querying image database: {e}")
@@ -128,14 +108,6 @@ class MultimodalRetriever:
     def hybrid_query(self, query: str, n_text_results: int = 5, n_image_results: int = 3) -> Dict:
         """
         Perform a hybrid query that returns both text and image results
-        
-        Args:
-            query: The text query
-            n_text_results: Number of text results to retrieve
-            n_image_results: Number of image results to retrieve
-            
-        Returns:
-            Dictionary containing text and image results
         """
         # Get text results
         text_results = self.query_text(query, n_results=n_text_results)
@@ -163,7 +135,7 @@ class MultimodalRetriever:
         # Find images from the same page
         try:
             results = self.image_collection.query(
-                query_embeddings=None,
+                query_texts=[],
                 where={"page_number": page_number},
                 n_results=n_images
             )
@@ -173,6 +145,9 @@ class MultimodalRetriever:
                 {
                     'image_path': meta.get('image_path'),
                     'page_number': meta.get('page_number'),
+                    'description': meta.get('description', ''),
+                    'type': meta.get('type', 'unknown'),
+                    'confidence': meta.get('confidence', 0.0),
                     'metadata': meta,
                     'modality': 'image'
                 }
@@ -213,6 +188,7 @@ if __name__ == "__main__":
     print("\nImage Results:")
     for i, result in enumerate(results['image_results'], 1):
         print(f"\nImage {i}:")
-        print(f"Distance: {result['distance']:.4f}")
+        print(f"Confidence: {result['confidence']:.4f}")
         print(f"Page: {result['page_number']}")
         print(f"Image Path: {result['image_path']}")
+        print(f"Description: {result['description']}")
