@@ -1,30 +1,44 @@
 from crewai import Agent, Task, Crew
 from langchain_openai import OpenAI
-from langchain.tools import tool
+from langchain.tools import Tool
 from langchain_community.tools.ddg_search.tool import DuckDuckGoSearchResults
 import numexpr
+from dotenv import load_dotenv
+import os
+# Load environment variables from .env file
+load_dotenv()
+# Set up DuckDuckGo search tool
 
 # Set up LLM
-llm = OpenAI(temperature=0)
+llm = OpenAI(temperature=0.7, model="gpt-4o-mini", max_tokens=2000)
 
 # Custom Calculator Tool using the numexpr library
-class CalculatorTools:
-    @tool("Make a calculation")
-    def calculate(operation: str) -> str:
-        """Useful to perform any mathematical calculations,
-        like sum, minus, multiplication, division, etc.
-        The input to this tool should be a mathematical
-        expression, e.g., '2007' or '5000/210'
-        """
-        try:
-            result = numexpr.evaluate(operation)
-            return str(result)
-        except Exception as e:
-            return f"Error: {e}"
+# class CalculatorTools:
+#     @tool("Make a calculation")
+#     def calculate(operation: str) -> str:
+#         """Useful to perform any mathematical calculations,
+#         like sum, minus, multiplication, division, etc.
+#         The input to this tool should be a mathematical
+#         expression, e.g., '2007' or '5000/210'
+#         """
+#         try:
+#             result = numexpr.evaluate(operation)
+#             return str(result)
+#         except Exception as e:
+#             return f"Error: {e}"
 
 # Create instances of the tools
-calculator_tool = CalculatorTools().calculate  # This gets the @tool-decorated method
-search_tool = DuckDuckGoSearchResults()  # Use the existing tool directly
+# calculator_tool = CalculatorTools().calculate  # This gets the @tool-decorated method
+# search_tool = DuckDuckGoSearchResults()  # Use the existing tool directly
+
+from langchain.tools import Tool
+
+# Wrap DuckDuckGoSearchResults in a Tool instance
+search_tool = Tool(
+    name="DuckDuckGoSearch",
+    func=DuckDuckGoSearchResults().run,
+    description="Useful for searching the web for real-time information."
+)
 
 # AGENTS
 relevance_checker = Agent(
@@ -58,8 +72,25 @@ math_web_agent = Agent(
     role="Analytical Assistant",
     goal="Perform math operations, plots, and search the web",
     backstory="You are skilled in calculations, plotting, and internet searches.",
-    tools=[calculator_tool, search_tool],
-    allow_delegation=True,
+    tools=[search_tool],
+    allow_delegation=False)
+
+from langchain.tools import Tool
+
+# Wrap DuckDuckGoSearchResults in a Tool instance
+search_tool = Tool(
+    name="DuckDuckGoSearch",
+    func=lambda query: DuckDuckGoSearchResults().run(query),
+    description="Useful for searching the web for real-time information."
+)
+
+# AGENTS
+math_web_agent = Agent(
+    role="Analytical Assistant",
+    goal="Perform math operations, plots, and search the web",
+    backstory="You are skilled in calculations, plotting, and internet searches.",
+    tools=[search_tool],  # Use the wrapped Tool instance
+    allow_delegation=False,
     verbose=True,
     llm=llm
 )
