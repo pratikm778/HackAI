@@ -4,6 +4,41 @@ import logging
 from dotenv import load_dotenv
 from openai import OpenAI
 from multimodal_retriever import MultimodalRetriever
+import json
+from sympy import sympify
+
+# Calculator Tool Schema
+calculator_tool = {
+    "type": "function",
+    "function": {
+        "name": "calculate_expression",
+        "description": "Evaluates mathematical expressions. Remove commas from large numbers before calculation.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "Math formula using numbers without commas. Example: (11372538 - 1024060)/1024060*100"
+                }
+            },
+            "required": ["expression"],
+            "additionalProperties": False
+        }
+    }
+}
+
+def calculate_expression(expression: str) -> str:
+    """Safely evaluates mathematical expressions using SymPy."""
+    try:
+        expr = (expression
+                .replace(',', '')
+                .replace(' ', '')
+                .replace('M', '*1e6')
+                .replace('K', '*1e3'))
+        result = float(sympify(expr).evalf())
+        return f"{result:.2f}%"
+    except Exception as e:
+        return f"Calculation Error: {str(e)}"
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -189,9 +224,9 @@ Make your answers concise and to the point."""
 
 # Example usage
 if __name__ == "__main__":
+    # RAG example
     generator = RAGGenerator()
     
-    # Example conversation
     print("\n--- Starting conversation ---")
     
     # First query
@@ -230,3 +265,88 @@ if __name__ == "__main__":
     # Reset conversation
     generator.reset_conversation()
     print("\n--- Conversation reset ---")
+    
+    # Calculator example
+    print("\n--- Calculator Example ---")
+    calculator_messages = [
+        {
+            "role": "system",
+            "content": """You are a financial analyst. For percentage growth queries:
+1. Extract numbers from text (remove commas).
+2. Use the formula: ((new_value - old_value) / old_value) * 100.
+3. Call calculate_expression with the expression.
+4. Example: 1,024,060 → 1024060."""
+        },
+        {
+            "role": "user",
+            "content": "LTI Mindtree had 1,024,060 employees in 2023 and 11,372,538 in 2024. What's the percentage growth?"
+        }
+    ]
+
+    try:
+        # Initial API Call
+        response = generator.client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=calculator_messages,
+            tools=[calculator_tool],
+            tool_choice="auto",
+            temperature=0.2
+        )
+
+        # Handle Tool Calls
+        if response.choices[0].message.tool_calls:
+            # Append the assistant's message with tool_calls to messages
+            assistant_message = {
+                "role": "assistant",
+                "content": response.choices[0].message.content or "",
+                "tool_calls": [
+                    {
+                        "id": tool_call.id,
+                        "type": "function",
+                        "function": {
+                            "name": tool_call.function.name,
+                            "arguments": tool_call.function.arguments
+                        }
+                    } for tool_call in response.choices[0].message.tool_calls
+                ]
+            }
+            calculator_messages.append(assistant_message)
+
+            # Process each tool call
+            for tool_call in response.choices[0].message.tool_calls:
+                if tool_call.function.name != "calculate_expression":
+                    raise ValueError(f"Unexpected function called: {tool_call.function.name}")
+
+                # Parse arguments
+                args = json.loads(tool_call.function.arguments)
+                if 'expression' not in args:
+                    raise KeyError("Missing 'expression' in function arguments")
+
+                # Execute calculation
+                result = calculate_expression(args['expression'])
+
+                # Append tool result
+                calculator_messages.append({
+                    "role": "tool",
+                    "content": result,
+                    "tool_call_id": tool_call.id
+                })
+
+            # Follow-up API Call
+            final_response = generator.client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=calculator_messages,
+                temperature=0
+            )
+
+            print("Final Answer:", final_response.choices[0].message.content)
+
+        else:
+            print("No tool call triggered. Model response:", response.choices[0].message.content)
+
+    except json.JSONDecodeError as e:
+        print(f"JSON Parsing Error: {str(e)}")
+    except KeyError as e:
+        print(f"Missing Key in Response: {str(e)}")
+    except Exception as e:
+        print(f"Error: {str(e)}")
