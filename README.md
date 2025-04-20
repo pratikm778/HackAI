@@ -1,3 +1,6 @@
+## How to run website
+1. run `python -m streamlit run your_script.py`
+
 ## How to run
 1. Create and activate a Python virtual environment (recommended)
 2. Install requirements:
