@@ -7,3 +7,11 @@ tools.py
 multimodal_retriever_tool.py
 app.py
 __pycache__/
+agents.py
+main_crew.py
+runner_agentic.py
+rag_generator.py
+test_tool.ipynb
+runner_agentic_cli.py
+rag_generator_literacy.py
+.env
