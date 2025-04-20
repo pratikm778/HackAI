@@ -26,7 +26,11 @@ class RAGGenerator:
         self.retriever = MultimodalRetriever()
         
         # Default model
-        self.model = "gpt-4-turbo-preview"
+        self.model = "gpt-4o-mini"
+        
+        # Initialize conversation history
+        self.conversation_history = []
+        self.max_history_length = 10  # Store up to 10 exchanges
     
     def _format_context(self, retrieval_results: Dict) -> str:
         """
@@ -53,7 +57,7 @@ class RAGGenerator:
         
         return context
     
-    def _build_prompt(self, query: str, context: str) -> str:
+    def _build_prompt(self, query: str, context: str) -> tuple:
         """
         Build a prompt for the LLM including query and context
         
@@ -62,7 +66,7 @@ class RAGGenerator:
             context: Formatted context from retrieval
             
         Returns:
-            Complete prompt for LLM
+            Tuple of (system_prompt, user_prompt)
         """
         system_prompt = """You are an AI assistant specialized in analyzing and answering questions about corporate documents.
 Use ONLY the information provided in the context below to answer the question. 
@@ -73,6 +77,29 @@ Make your answers concise and to the point."""
         
         prompt = f"{context}\n\nQUESTION: {query}\n\nANSWER:"
         return system_prompt, prompt
+    
+    def _prepare_messages_with_history(self, system_prompt: str, user_prompt: str) -> List[Dict]:
+        """
+        Prepare messages for the API call, including conversation history
+        
+        Args:
+            system_prompt: System prompt
+            user_prompt: Current user prompt
+            
+        Returns:
+            List of message dictionaries for the API call
+        """
+        messages = [{"role": "system", "content": system_prompt}]
+        
+        # Add conversation history
+        for entry in self.conversation_history:
+            messages.append({"role": "user", "content": entry["user"]})
+            messages.append({"role": "assistant", "content": entry["assistant"]})
+        
+        # Add current query
+        messages.append({"role": "user", "content": user_prompt})
+        
+        return messages
     
     def generate_answer(self, query: str, n_text_results: int = 5, n_image_results: int = 3, temperature: float = 0.1) -> Dict:
         """
@@ -101,18 +128,28 @@ Make your answers concise and to the point."""
             # Build prompt
             system_prompt, user_prompt = self._build_prompt(query, context)
             
+            # Prepare messages with conversation history
+            messages = self._prepare_messages_with_history(system_prompt, user_prompt)
+            
             # Generate response from OpenAI
             response = self.client.chat.completions.create(
                 model=self.model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
+                messages=messages,
                 temperature=temperature
             )
             
             # Extract answer from response
             answer = response.choices[0].message.content
+            
+            # Update conversation history
+            self.conversation_history.append({
+                "user": query,
+                "assistant": answer
+            })
+            
+            # Limit history size
+            if len(self.conversation_history) > self.max_history_length:
+                self.conversation_history.pop(0)
             
             # Format sources
             sources = []
@@ -143,28 +180,53 @@ Make your answers concise and to the point."""
                 'answer': f"Sorry, an error occurred while generating the answer: {str(e)}",
                 'sources': []
             }
+    
+    def reset_conversation(self):
+        """Reset the conversation history"""
+        self.conversation_history = []
+        logger.info("Conversation history has been reset")
 
 
 # Example usage
 if __name__ == "__main__":
     generator = RAGGenerator()
     
-    # Example query
-    result = generator.generate_answer(
+    # Example conversation
+    print("\n--- Starting conversation ---")
+    
+    # First query
+    result1 = generator.generate_answer(
         "What were the financial highlights from the last fiscal year?",
         n_text_results=4,
         n_image_results=2
     )
+    print("\nQUERY 1:")
+    print(result1['query'])
+    print("\nANSWER 1:")
+    print(result1['answer'])
     
-    print("\nQUERY:")
-    print(result['query'])
+    # Second query (follow-up)
+    result2 = generator.generate_answer(
+        "Can you tell me more about their digital transformation initiatives?",
+        n_text_results=4,
+        n_image_results=2
+    )
+    print("\nQUERY 2:")
+    print(result2['query'])
+    print("\nANSWER 2:")
+    print(result2['answer'])
     
-    print("\nANSWER:")
-    print(result['answer'])
+    # Third query (follow-up)
+    result3 = generator.generate_answer(
+        "Who are the key executives mentioned in those initiatives?",
+        n_text_results=4,
+        n_image_results=2
+    )
+    print("\nQUERY 3:")
+    print(result3['query'])
+    print("\nANSWER 3:")
+    print(result3['answer'])
     
-    print("\nSOURCES:")
-    for i, source in enumerate(result['sources'], 1):
-        if source['type'] == 'text':
-            print(f"{i}. Text from page {source['page']}: {source['content_preview']}")
-        else:
-            print(f"{i}. Image from page {source['page']}: {source['path']}")
+    # Reset conversation
+    generator.reset_conversation()
+    print("\n--- Conversation reset ---")
