@@ -148,6 +148,7 @@ class MultimodalRetriever:
                     'description': meta.get('description', ''),
                     'type': meta.get('type', 'unknown'),
                     'confidence': meta.get('confidence', 0.0),
+                    'confidence_percentage': f"{meta['confidence'] * 100:.2f}%",  # Add confidence percentage
                     'metadata': meta,
                     'modality': 'image'
                 }
