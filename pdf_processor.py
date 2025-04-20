@@ -5,6 +5,7 @@ from pathlib import Path
 from PIL import Image
 from typing import Dict, List, Tuple
 import io
+from embeddings_processor import ImageAnalyzer
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -19,7 +20,8 @@ class PDFProcessor:
         self.image_dir = Path(image_dir)
         self.output_dir.mkdir(exist_ok=True)
         self.image_dir.mkdir(exist_ok=True)
-
+        self.image_analyzer = ImageAnalyzer()
+    
     def process_pdf(self, pdf_path: str, chunk_size: int = 1000) -> Tuple[List[Dict], List[Dict]]:
         """
         Process a PDF file to extract both text and images
@@ -53,7 +55,7 @@ class PDFProcessor:
                         }
                         text_chunks.append(chunk_info)
                 
-                # Extract images
+                # Extract and analyze images
                 image_list = page.get_images()
                 for img_index, img in enumerate(image_list, 1):
                     try:
@@ -67,13 +69,19 @@ class PDFProcessor:
                         image_path = self.image_dir / image_filename
                         image.save(image_path)
                         
-                        # Record image info
+                        # Analyze image using CLIP
+                        analysis = self.image_analyzer.analyze_image(str(image_path))
+                        
+                        # Record image info with analysis
                         img_info = {
                             'page_number': page_num,
                             'image_number': img_index,
                             'path': str(image_path),
                             'width': image.width,
                             'height': image.height,
+                            'type': analysis['type'],
+                            'description': analysis['description'],
+                            'confidence': analysis['confidence'],
                             'file_path': pdf_path
                         }
                         image_info.append(img_info)
@@ -86,7 +94,7 @@ class PDFProcessor:
         except Exception as e:
             logger.error(f"Error processing PDF {pdf_path}: {e}")
             raise
-
+    
     def _split_text(self, text: str, chunk_size: int) -> List[str]:
         """Split text into chunks of approximately equal size"""
         words = text.split()
@@ -108,29 +116,41 @@ class PDFProcessor:
             chunks.append(' '.join(current_chunk))
             
         return chunks
-
+    
     def save_text_chunks(self, chunks: List[Dict]) -> None:
         """Save text chunks to individual files"""
         for chunk in chunks:
             filename = f"text_{chunk['page_number']}_{chunk['chunk_number']}.txt"
             filepath = self.output_dir / filename
+            
             with open(filepath, 'w', encoding='utf-8') as f:
                 f.write(chunk['text'])
 
 def main():
-    processor = PDFProcessor()
+    import argparse
     
-    # Process PDF file
-    pdf_path = "ltimindtree_annual_report.pdf"  # Replace with your PDF
-    if os.path.exists(pdf_path):
-        try:
-            text_chunks, image_info = processor.process_pdf(pdf_path)
-            processor.save_text_chunks(text_chunks)
-            logger.info(f"Processed {len(text_chunks)} text chunks and {len(image_info)} images")
-        except Exception as e:
-            logger.error(f"Failed to process PDF: {e}")
-    else:
-        logger.error(f"PDF file not found: {pdf_path}")
+    parser = argparse.ArgumentParser(description='Process a PDF file to extract text and images.')
+    parser.add_argument('--input', required=True, help='Path to the PDF file to process')
+    args = parser.parse_args()
+    
+    processor = PDFProcessor()
+    text_chunks, image_info = processor.process_pdf(args.input)
+    
+    # Save text chunks
+    processor.save_text_chunks(text_chunks)
+    
+    # Print summary
+    print(f"\nProcessed {len(text_chunks)} text chunks")
+    print(f"Extracted {len(image_info)} images")
+    
+    # Print image analysis results
+    print("\nImage Analysis Results:")
+    for img in image_info:
+        if img['description']:  # Only print non-empty descriptions
+            print(f"\nPage {img['page_number']}, Image {img['image_number']}:")
+            print(f"Type: {img['type']}")
+            print(f"Description: {img['description']}")
+            print(f"Confidence: {img['confidence']:.2f}")
 
 if __name__ == "__main__":
     main()
