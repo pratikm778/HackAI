@@ -14,7 +14,7 @@ def main():
         """
         <style>
         [data-testid="stSidebar"] {
-            background-color: white;  /* Sidebar background color */
+            background-color: gray;  /* Sidebar background color */
         }
         [data-testid="stSidebar"] label {
             color: black;  /* Black text color for labels */
@@ -35,12 +35,12 @@ def main():
         """,
         unsafe_allow_html=True
     )
-    st.title("LITMindtree Analysis")
+    st.title("LTIMindtree Story and Analysis")
     st.sidebar.image("./LTIMindtree_bg.png", use_container_width=True)  # Add the logo
     st.sidebar.title("Options")
     
     # Sidebar options
-    company = st.sidebar.text_input("Enter the company name:", "LITMindtree")
+    company = st.sidebar.text_input("Enter the company name:", "LTIMindtree")
     n_facts = st.sidebar.slider("Number of random facts to fetch:", 1, 20, 10)
     analysis_type = st.sidebar.selectbox("Select analysis type:", ["financial analysis", "storytelling"])
     language = st.sidebar.selectbox("Select language for audio:", ["en", "hi", "es"])  # English, Hindi, Spanish
@@ -55,10 +55,10 @@ def main():
             st.error("Failed to fetch random facts. Please try again.")
             return
         
-        # Display random facts
-        st.subheader("Random Facts")
-        for i, fact in enumerate(random_facts, 1):
-            st.markdown(f"**FACT {i}** (Page {fact['page']}): {fact['text']}")
+        # # Display random facts
+        # st.subheader("Random Facts")
+        # for i, fact in enumerate(random_facts, 1):
+        #     st.markdown(f"**FACT {i}** (Page {fact['page']}): {fact['text']}")
         
         # Generate analysis
         with st.spinner(f"Generating {analysis_type}..."):

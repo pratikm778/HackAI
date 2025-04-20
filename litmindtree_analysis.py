@@ -76,8 +76,8 @@ class LITMindtreeAnalyzer:
                 context += f"FACT {i} (Page {fact['page']}): {fact['text']}\n\n"
             
             # Build prompt
-            system_prompt = f"You are a very creative bestselling short stort teller that writes specialized in {analysis_type}."
-            user_prompt = f"{context}\n\nBased on the above facts, provide a detailed {analysis_type}."
+            system_prompt = f"You are a very creative bestselling short stort teller that speacilises in tech stories and {analysis_type}."
+            user_prompt = f"{context}\n\nBased on few of the above facts, provide a 150 word punchy whacky futuristic story on {analysis_type}."
             
             # Generate response
             response = self.client.chat.completions.create(
@@ -86,7 +86,7 @@ class LITMindtreeAnalyzer:
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
                 ],
-                temperature=0.7
+                temperature=1.2
             )
             
             analysis = response.choices[0].message.content
