@@ -4,43 +4,42 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Optional
 import chromadb
-import google.generativeai as genai
 import torch
 from PIL import Image
 from transformers import CLIPProcessor, CLIPModel
+from sentence_transformers import SentenceTransformer
 import numpy as np
 from dotenv import load_dotenv
 from datetime import datetime
-import easyocr  # Add EasyOCR import
+import easyocr
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-class GoogleEmbeddingFunction:
+class SentenceTransformerEmbeddingFunction:
     def __init__(self):
-        self.model = "models/embedding-001"
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
+        self.model.to(self.device)
         
     def __call__(self, input: List[str]) -> List[List[float]]:
-        """Generate embeddings for a list of texts using Google's API
+        """Generate embeddings for a list of texts using SentenceTransformer model
         Args:
             input: List of texts to generate embeddings for
         Returns:
             List of embeddings as float arrays
         """
-        embeddings = []
-        for text in input:
-            try:
-                result = genai.embed_content(
-                    model=self.model,
-                    content=text,
-                    task_type="retrieval_document"
-                )
-                embeddings.append(result['embedding'])
-            except Exception as e:
-                logger.error(f"Error generating embedding: {e}")
-                raise
-        return embeddings
+        try:
+            # Generate embeddings for all texts at once
+            embeddings = self.model.encode(input, convert_to_tensor=True)
+            # Convert to numpy, normalize, and convert to list
+            embeddings_np = embeddings.cpu().numpy()
+            normalized_embeddings = embeddings_np / np.linalg.norm(embeddings_np, axis=1, keepdims=True)
+            return normalized_embeddings.tolist()
+        except Exception as e:
+            logger.error(f"Error generating embeddings: {e}")
+            raise
 
 class ContentLabeler:
     """Helper class to classify and label content using ML models"""
@@ -195,12 +194,6 @@ class EmbeddingsProcessor:
     def __init__(self):
         load_dotenv()
         
-        # Configure Google AI
-        api_key = os.getenv('GOOGLE_API_KEY')
-        if not api_key:
-            raise ValueError("GOOGLE_API_KEY environment variable not set")
-        genai.configure(api_key=api_key)
-        
         # Initialize CLIP-based image analyzer
         self.image_analyzer = ImageAnalyzer()
         
@@ -208,33 +201,36 @@ class EmbeddingsProcessor:
         self.db_path = "chroma_db"
         self.client = chromadb.PersistentClient(path=self.db_path)
         
-        # Initialize embedding function using Google's API
-        self.embedding_function = GoogleEmbeddingFunction()
+        # Initialize embedding function using SentenceTransformer model
+        self.embedding_function = SentenceTransformerEmbeddingFunction()
         
-        self._setup_collections()
+        self._setup_collections(force_recreate=True)
     
-    def _setup_collections(self):
+    def _setup_collections(self, force_recreate: bool = False):
         """Set up ChromaDB collections for text and images"""
-        # Text collection
-        try:
-            self.text_collection = self.client.get_collection("text_embeddings")
-        except:
-            self.text_collection = self.client.create_collection(
-                name="text_embeddings",
-                metadata={"description": "Text embeddings from documents"}
-            )
+        # Delete existing collections if force_recreate
+        if force_recreate:
+            try:
+                self.client.delete_collection("text_embeddings")
+                self.client.delete_collection("image_embeddings")
+            except:
+                pass
         
-        # Image collection
-        try:
-            self.image_collection = self.client.get_collection("image_embeddings")
-        except:
-            self.image_collection = self.client.create_collection(
-                name="image_embeddings",
-                metadata={"description": "Image embeddings and metadata"}
-            )
+        # Text collection
+        self.text_collection = self.client.create_collection(
+            name="text_embeddings",
+            metadata={"description": "Text embeddings from documents"},
+            embedding_function=self.embedding_function
+        )
+        
+        # Image collection  
+        self.image_collection = self.client.create_collection(
+            name="image_embeddings",
+            metadata={"description": "Image embeddings and metadata"}
+        )
     
     def get_text_embedding(self, text: str) -> List[float]:
-        """Generate embeddings for text using Google's API"""
+        """Generate embeddings for text using SentenceTransformer model"""
         return self.embedding_function([text])[0]
     
     def process_data_folder(self, data_folder: str = "data", image_folder: str = "pic_data") -> None:
