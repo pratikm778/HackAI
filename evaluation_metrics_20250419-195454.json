@@ -1,0 +1,13 @@
+{
+  "retrieval": {
+    "avg_time": 0.15772011280059814,
+    "avg_text_results": 5.0,
+    "avg_image_results": 0.0
+  },
+  "generation": {
+    "avg_time": 4.644647574424743,
+    "avg_answer_length": 812.2,
+    "avg_sources_count": 5.0,
+    "pct_with_images": 0.0
+  }
+}

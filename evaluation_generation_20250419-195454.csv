@@ -1,0 +1,11 @@
+query,answer_length,sources_count,generation_time,has_image_sources
+What were the financial highlights from the last fiscal year?,745,5,4.970985174179077,False
+Explain the company's sustainability initiatives.,1626,5,7.783643007278442,False
+Who are the members of the board of directors?,102,5,1.0733704566955566,False
+What are the key risk factors mentioned in the report?,605,5,5.253414630889893,False
+How has the company performed in terms of revenue growth?,185,5,4.971390008926392,False
+What is the company's approach to digital transformation?,761,5,3.2826406955718994,False
+What are the strategic priorities for the coming year?,236,5,1.4998064041137695,False
+Describe the company's corporate governance structure.,2975,5,12.778303146362305,False
+What investments has the company made in R&D?,307,5,2.0335919857025146,False
+How does the company address environmental concerns?,580,5,2.799330234527588,False
