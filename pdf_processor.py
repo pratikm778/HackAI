@@ -24,7 +24,7 @@ class PDFProcessor:
     
     def process_pdf(self, pdf_path: str, chunk_size: int = 1000) -> Tuple[List[Dict], List[Dict]]:
         """
-        Process a PDF file to extract both text and images
+        Process a PDF file to extract both text and images, with special handling for tables, diagrams, and graphs
         
         Args:
             pdf_path: Path to the PDF file
@@ -55,8 +55,57 @@ class PDFProcessor:
                         }
                         text_chunks.append(chunk_info)
                 
-                # Extract and analyze images
+                # Extract and analyze images using both standard and advanced methods
+                # Method 1: Standard image extraction
                 image_list = page.get_images()
+                
+                # Method 2: Get tables and diagrams as images
+                pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))  # 2x resolution for better quality
+                img_data = pix.tobytes("png")
+                
+                # Save the full page image temporarily to detect tables and diagrams
+                temp_page_image = f"temp_page_{page_num}.png"
+                with open(temp_page_image, "wb") as f:
+                    f.write(img_data)
+                
+                # Analyze the full page for tables and diagrams
+                page_analysis = self.image_analyzer.analyze_image(temp_page_image)
+                
+                if page_analysis['type'] in ["a table or spreadsheet", "a diagram or flowchart"]:
+                    # If a table or diagram is detected, save it as a separate image
+                    img_index = len(image_list) + 1
+                    image_filename = f"page_{page_num}_img_{img_index}.png"
+                    image_path = self.image_dir / image_filename
+                    
+                    # Copy the detected table/diagram
+                    import shutil
+                    shutil.copy2(temp_page_image, image_path)
+                    
+                    # Get text content
+                    extracted_text = self.image_analyzer.extract_text(str(image_path))
+                    
+                    # Create image info
+                    img_info = {
+                        'page_number': page_num,
+                        'image_number': img_index,
+                        'path': str(image_path),
+                        'width': pix.width,
+                        'height': pix.height,
+                        'type': page_analysis['type'],
+                        'description': f"{page_analysis['type'].capitalize()} containing: {extracted_text[:200]}...",
+                        'confidence': page_analysis['confidence'],
+                        'extracted_text': extracted_text,
+                        'file_path': pdf_path
+                    }
+                    image_info.append(img_info)
+                
+                # Clean up temporary file
+                try:
+                    os.remove(temp_page_image)
+                except:
+                    pass
+                
+                # Process standard images
                 for img_index, img in enumerate(image_list, 1):
                     try:
                         xref = img[0]
@@ -69,10 +118,23 @@ class PDFProcessor:
                         image_path = self.image_dir / image_filename
                         image.save(image_path)
                         
-                        # Analyze image using CLIP
+                        # Enhanced image analysis
                         analysis = self.image_analyzer.analyze_image(str(image_path))
                         
-                        # Record image info with analysis
+                        # Extract text content
+                        extracted_text = ""
+                        if analysis['type'] in ["a table or spreadsheet", "a graph or chart", "a diagram or flowchart"]:
+                            extracted_text = self.image_analyzer.extract_text(str(image_path))
+                            
+                            # Generate descriptive text based on the type
+                            if analysis['type'] == "a table or spreadsheet":
+                                analysis['description'] = f"Table containing: {extracted_text[:200]}..."
+                            elif analysis['type'] == "a graph or chart":
+                                analysis['description'] = f"Graph/Chart with labels: {extracted_text[:200]}..."
+                            elif analysis['type'] == "a diagram or flowchart":
+                                analysis['description'] = f"Diagram/Flowchart showing: {extracted_text[:200]}..."
+                        
+                        # Record image info
                         img_info = {
                             'page_number': page_num,
                             'image_number': img_index,
@@ -82,6 +144,7 @@ class PDFProcessor:
                             'type': analysis['type'],
                             'description': analysis['description'],
                             'confidence': analysis['confidence'],
+                            'extracted_text': extracted_text,
                             'file_path': pdf_path
                         }
                         image_info.append(img_info)
