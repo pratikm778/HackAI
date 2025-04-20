@@ -1,0 +1,6 @@
+Salesforce strategy with their broader business goals. As organizations use various applications to manage different aspects of their business, there's a growing need to integrate these systems for seamless data flow. We help clients in integrating services to connect Salesforce with other business tools like ERP systems, marketing automation platforms, or customer support systems.
+We also see distinct opportunities across service areas such as Implementation, Customization and Configuration, Data Migration, Training \& Support, Health Checks and Assessments and Managed services.
+
+## INNOVATION
+
+## DATA \& ANALYTICS

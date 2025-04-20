@@ -1,0 +1,15 @@
+${ }^{2}$ |  | 2 |
+| Corporate Deposits | 1,935 | 972 |
+| Investments measured at FVTPL: <br> Quoted: |  |  |
+| Reportual Bonds | 206 | 205 |
+| Investments measured at FVTOC: <br> Unquoted |  |  |
+| Equity Instruments: |  |  |
+| - 950,000 (As at March 31, 2023: 950,000) Equity shares of ₹ 1 each in NuvePro Technologies Private Limited | 1 | 1 |
+| Preference Shares: |  |  |
+| - 643,790 (As at March 31, 2023: 643,790) Series A Convertible Preferred Stock at US\$ 0.0001 each fully paid at premium of US $\$ 0.2557$ each in 30 Second Software Inc. | 7 | 7 |
+| 18,880 (As at March 31, 2023: 18,880) Series A Preferred stock at US\$ 0.0001 each fully paid at premium of US $\$ 238,3474$ each in COPE Healthcare Consulting Inc ${ }^{4}$ | 343 | 343 |
+|  | 24,499 | 11,776 |
+| Other Disclosures: |  |  |
+| (i) Aggregate amount of quoted investments | 17,616 | 5,840 |
+| Market Value of quoted investments | 18,012 | 5,741 |
+| (ii) Aggregate amount of unquoted investments | 6,883 | 5,936 |

@@ -1,0 +1,10 @@
+(ii) Deferred tax liabilities
+
+| Particulars | Deferred tax asset/(liabilities) as at April 1, 2022 | (Charge)/credit by statement of Profit \& Loss | (Charge)/credit to Other Comprehensive Income | Deferred Tax asset/(liabilities) as at March 31, 2022 |
+| :--: | :--: | :--: | :--: | :--: |
+| Depreciation/amortization | 205 | 25 | - | - |
+| Deferred tax liabilities (B) | (26) | 26 | - | - |
+| Net deferred tax assets/(liabilities) (A+B) | 3,588 | (18) | $(1,556)$ | 2,014 |
+
+(II) Deferred tax assets/(liabilities) as at March 31, 2023
+(i) Deferred tax assets

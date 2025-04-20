@@ -1,0 +1,4 @@
+## Hewlett Packard Enterprise
+
+Hewlett Packard Enterprise (HPE) and LITMIndtree (LTM) share a 360-degree partnership representing a significant collaboration aimed at delivering innovative solutions and services to clients in key focus areas by striving to address the evolving needs of businesses in the digital era.
+By combining HPE's tech infra expertise \& Green lake hybrid cloud solutions with L'ITMIndtree's reliable and Full Stack Digital Operating Model (FSDO) proven services, L'ITMIndtree is accelerating client's digital transformation journey and delivering secure, distinctive experiences from edge to cloud with a Zero Trust, Al-driven foundation. This collaboration is particularly valuable in today's rapidly changing business

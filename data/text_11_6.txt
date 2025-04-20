@@ -1,0 +1,10 @@
+## 16. Details of business activities (accounting for $90 \%$ of the turnover):
+
+| 5. No | Description of Main Activity | Description of Business Activity | \% Of Turnover of the entity |
+| :--: | :--: | :--: | :--: |
+| 1 | Information and communication (JB, JB) | Computer programming, consultancy, and related activities \& other information \& communication service activities, IT software, services, and related activities | $100 \%$ |
+| 17. Products/Services sold by the entity (accounting for 90\% of the entity's turnover): |  |  |  |
+| 5. No | Product/Service | NIC Code | \% Of Total Turnover contributed |
+| 1 | IT and IT-enabled services including digital transformation services, enterprise solutions, technology consulting, IT consulting, application development and maintenance, business operations services and platforms, among others, are the predominant services which accounts for the entity's turnover. | 62099, 892 (1987 NIC Code) \& 620 (NIC Code) | $100 \%$ |
+
+## III. OPERATIONS
