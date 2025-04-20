@@ -137,7 +137,6 @@ class ImageAnalyzer:
                 # Move inputs to the same device as model
                 inputs = {k: v.to(self.device) for k, v in inputs.items()}
                 
-                # Get model outputs
                 with torch.no_grad():
                     outputs = self.model(**inputs)
                     
@@ -161,9 +160,14 @@ class ImageAnalyzer:
                     category = categories[category_idx]
                     confidence = float(probs_np[0][category_idx])
                 
-                # Generate description based on category
-                if category in ["a table or spreadsheet", "a graph or chart"]:
-                    description = ""
+                # Generate meaningful descriptions based on category and extracted text
+                description = ""
+                if category == "a table or spreadsheet":
+                    description = f"Table containing data. Extracted content: {extracted_text[:200]}..."
+                elif category == "a graph or chart":
+                    description = f"Graph/Chart visualization. Labels and values: {extracted_text[:200]}..."
+                elif category == "a diagram or flowchart":
+                    description = f"Diagram/Flowchart showing: {extracted_text[:200]}..."
                 else:
                     description = f"This image appears to be {category}"
                 
