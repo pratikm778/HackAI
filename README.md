@@ -1,3 +1,8 @@
+## Note to run streamlit app
+1. cd streamlit-frontend
+2. streamlit run app.py
+
+
 ## How to run
 1. Create and activate a Python virtual environment (recommended)
 2. Install requirements:
