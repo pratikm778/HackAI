@@ -6,7 +6,7 @@ from PIL import Image
 import chromadb
 import logging
 from dotenv import load_dotenv
-from embeddings_processor import ImageAnalyzer, GoogleEmbeddingFunction
+from embeddings_processor import ImageAnalyzer, CLIPEmbeddingFunction
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -25,7 +25,7 @@ class MultimodalRetriever:
         self.client = chromadb.PersistentClient(path=self.db_path)
         
         # Initialize embedding function and image analyzer
-        self.embedding_function = GoogleEmbeddingFunction()
+        self.embedding_function = CLIPEmbeddingFunction()
         self.image_analyzer = ImageAnalyzer()
         
         # Get references to collections
