@@ -4,11 +4,10 @@ import json
 import time
 from pathlib import Path
 from mistralai.client import MistralClient
-from mistralai.models.chat_completion import ChatMessage  # Correct import if needed for LLM calls
 import tiktoken
 import chromadb
 from chromadb.utils import embedding_functions
-import google.generativeai as genai # Or import openai
+import google.genai as genai # Or import openai
 
 # --- Configuration ---
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
