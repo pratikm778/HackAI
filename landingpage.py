@@ -15,6 +15,11 @@ swp = st.Page(
     title="About LTIMindtree",
 )
 
+rth = st.Page(
+    "./financial_literacy.py",
+    title="Financial Literacy",
+)
 
-pg = st.navigation(pages=[main, dca, swp])
+
+pg = st.navigation(pages=[main, dca, swp, rth])
 pg.run()

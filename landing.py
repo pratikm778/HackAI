@@ -96,6 +96,10 @@ def main():
             <h2>🏢 About LTIMindtree</h2>
             <p>LTIMindtree is a global technology consulting and digital solutions company that enables enterprises to reimagine business models, accelerate innovation, and maximize growth. We are proud to integrate cutting-edge AI solutions into our services.</p>
         </div>
+        <div class="feature-card">
+            <h2> Financial Literacy </h2>
+            <p> LTIMindtree is dedicated to empowering individuals with financial literacy by simplifying complex financial concepts and providing actionable insights. Our mission is to help you understand key financial metrics, make informed decisions, and achieve your financial goals. Through innovative AI-driven solutions, we make financial education accessible, engaging, and impactful.</p>
+        </div>
         """,
         unsafe_allow_html=True
     )
