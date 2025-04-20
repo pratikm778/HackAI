@@ -115,6 +115,21 @@ Make your answers concise and to the point."""
             Dictionary containing the query, answer, and sources used
         """
         try:
+            # Handle meta-questions about conversation history
+            if any(phrase in query.lower() for phrase in ["what did i last ask", "what was my last question", "previous question"]):
+                if not self.conversation_history:
+                    return {
+                        'query': query,
+                        'answer': "You haven't asked me any questions yet.",
+                        'sources': []
+                    }
+                last_conversation = self.conversation_history[-1]
+                return {
+                    'query': query,
+                    'answer': f'Your last question was: "{last_conversation["user"]}" and I responded with: "{last_conversation["assistant"]}"',
+                    'sources': []
+                }
+
             # Get retrieval results
             retrieval_results = self.retriever.hybrid_query(
                 query=query,
